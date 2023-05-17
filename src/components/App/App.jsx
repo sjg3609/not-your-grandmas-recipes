@@ -19,8 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import RecipesPage from '../Recipes/RecipesPage';
+import AddRecipe from '../Recipes/AddRecipe';
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -66,6 +68,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/recipes">
+            <RecipesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/addRecipe">
+            <AddRecipe />
           </ProtectedRoute>
 
           <Route
