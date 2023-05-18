@@ -10,6 +10,7 @@ function AddRecipe() {
     const handleRecipeName = (event) => {
         event.preventDefault();
         const action = { type: 'SET_RECIPE_NAME', payload: event.target.value };
+        dispatch(action);
     }
 
     const handleIngredientChange = (event) => {
@@ -24,6 +25,11 @@ function AddRecipe() {
         dispatch(action);
     }
 
+    const categoryChange = (event) => {
+        dispatch({ type: 'SET_CATEGORY', payload: event.target.value });
+
+    }
+
     const submitRecipe = (event) => {
         event.preventDefault();
         dispatch({ type: 'SET_RECIPE' });
@@ -35,7 +41,7 @@ function AddRecipe() {
             <form>
                 Category:
                 <br />
-                <input type="text" placeholder="Category" />
+                <input type="text" placeholder="Category" onChange={categoryChange}/>
                 <br />
                 Recipe Name:
                 <br />
