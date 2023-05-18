@@ -1,12 +1,27 @@
-#addRecipes {
-    column-count: 3;
+.addRecipes {
+    column-count: 2;
+    column-fill: balance;
+    margin: 20px;
+    padding: 40px;
+    
     
 }
 
-/* #ingredientsFields {
-    flex-direction: column;
+/* .categoryDiv {
+    column-fill: balance;
+} */
+
+/* .ingredientsFields {
+    column-count: 1;
+    column-fill: balance;
 }
 
-#instructionFields {
-    flex-direction: column;
+.instructionFields {
+    column-count: 1;
+    column-fill: balance;
 } */
+
+h1 {
+    flex-direction: row;
+    text-align: center;
+}

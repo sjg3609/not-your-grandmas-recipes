@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
+import './AddRecipe.css';
 
 
 function AddRecipe() {
@@ -39,14 +39,17 @@ function AddRecipe() {
         <div className="addRecipes">
             <h1>Add Recipe!</h1>
             <form>
-                Category:
-                <br />
-                <input type="text" placeholder="Category" onChange={categoryChange}/>
-                <br />
-                Recipe Name:
-                <br />
-                <input type="text" placeholder="Recipe Name" onChange={handleRecipeName} />
-                <br />
+                <div className="categoryDiv"> 
+                    Category:
+                    <br />
+                    <input type="text" placeholder="Category" onChange={categoryChange} />
+                    <br />
+                    Recipe Name:
+                    <br />
+                    <input type="text" placeholder="Recipe Name" onChange={handleRecipeName} />
+                    <br />
+                </div>
+               
                 <div className="ingredientsFields">
                     Ingredients:
                     <br />
@@ -67,24 +70,29 @@ function AddRecipe() {
                     <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
                     <br />
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                Instructions:
                 <div className="instructionsFields">
-                    Instructions:
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange}/>
+                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                 </div>
                 <input type="submit" onSubmit={submitRecipe} />

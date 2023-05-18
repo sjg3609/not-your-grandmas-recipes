@@ -1,10 +1,10 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* getRecipes (action) {
+function* getRecipes() {
     try {
         const recipes = yield axios.get('/api/recipes');
-        yield put({ type: 'SET_RECIPES', payload: recipes.data});
+        yield put({ type: 'SET_RECIPES', payload: recipes.data });
     } catch {
         console.log('Get all error');
     }
