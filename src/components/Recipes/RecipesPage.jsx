@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import RecipeCard from './RecipeCard';
 
 
 function RecipesPage() {
@@ -13,6 +14,7 @@ function RecipesPage() {
                     <li><Link>Desserts</Link></li>
                 </ul>
             </nav>
+            <RecipeCard />
         </>
     )
 }
