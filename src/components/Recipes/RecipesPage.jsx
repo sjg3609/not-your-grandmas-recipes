@@ -7,7 +7,7 @@ import RecipeCard from './RecipeCard';
 function RecipesPage() {
 
     const dispatch = useDispatch();
-    const recipes = useSelector(store => store.recipes);
+    const recipes = useSelector(store => store.recipesReducer);
 
     console.log('Checking for recipes', recipes);
 
@@ -19,13 +19,13 @@ function RecipesPage() {
         <div>
             <h1>Recipes</h1>
             <nav className="recipePage"> Categories
-                <ul>
+                {/* <ul>
                     <li><Link>Breakfast</Link></li>
                     <li><Link>Casseroles</Link></li>
                     <li><Link>Desserts</Link></li>
-                </ul>
+                </ul> */}
             </nav>
-            {/* {
+            {
                 recipes.map(recipe => {
                     return (
                         <div key={recipe.id}>
@@ -37,7 +37,7 @@ function RecipesPage() {
                     )
 
                 })
-            } */}
+            }
             <RecipeCard />
         </div>
     )
