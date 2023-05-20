@@ -4,7 +4,7 @@ import axios from 'axios';
 function* getCategories() {
     try {
         const categories = yield axios.get('/api/categories');
-        yield put({ type: 'SET_CATEGORIES', payload: categories.data })
+        yield put({ type: 'SET_CATEGORIES', payload: categories.data });
     } catch {
         console.log('GET all categories error')
     }

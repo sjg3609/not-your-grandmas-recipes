@@ -8,7 +8,7 @@ function RecipesPage() {
 
     const dispatch = useDispatch();
     const recipes = useSelector(store => store.recipesReducer);
-    const categories = useSelector(store => store.categoriesReducer);
+    const categories = useSelector(store => store.categoryReducer);
 
     console.log('Checking for recipes', recipes);
     console.log('Check categories', categories);
@@ -28,7 +28,11 @@ function RecipesPage() {
             <nav className="recipePage"> Categories
                 <ul>
                     {
-                        
+                        categories.map(category => {
+                            return (
+                                <l1>{category.description}</l1>
+                            )
+                        })
                     }
                     {/* <li><Link>Breakfast</Link></li>
                     <li><Link>Casseroles</Link></li>
