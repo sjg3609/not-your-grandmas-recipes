@@ -25,34 +25,18 @@ function RecipesPage() {
     return (
         <div>
             <h1>Recipes</h1>
-            <nav className="recipePage"> Categories
-                <ul>
+            <h4>Categories</h4>
+            <nav className="recipePage"> 
                     {
                         categories.map(category => {
                             return (
-                                <l1>{category.description}</l1>
+                                <ul>
+                                    <l1>{category.description}</l1>
+                                </ul>
                             )
                         })
                     }
-                    {/* <li><Link>Breakfast</Link></li>
-                    <li><Link>Casseroles</Link></li>
-                    <li><Link>Desserts</Link></li> */}
-                </ul>
             </nav>
-            {
-                recipes.map(recipe => {
-                    return (
-                        <div key={recipe.id}>
-                            <h4>{recipe.name}</h4>
-                            <h5>{recipe.ingredients}</h5>
-                            <h5>{recipe.instructions}</h5>
-                            <h5>{recipe.notes}</h5>
-                        </div>
-                    )
-
-                })
-            }
-            <RecipeCard />
         </div>
     )
 }
