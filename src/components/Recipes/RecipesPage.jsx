@@ -8,22 +8,32 @@ function RecipesPage() {
 
     const dispatch = useDispatch();
     const recipes = useSelector(store => store.recipesReducer);
+    const categories = useSelector(store => store.categoriesReducer);
 
     console.log('Checking for recipes', recipes);
+    console.log('Check categories', categories);
+
+    const fetchCategories = () => {
+        dispatch({ type: 'FETCH_CATEGORIES' });
+    }
 
     useEffect(() => {
         dispatch({ type: 'FETCH_RECIPES' });
+        fetchCategories();
     }, []);
 
     return (
         <div>
             <h1>Recipes</h1>
             <nav className="recipePage"> Categories
-                {/* <ul>
-                    <li><Link>Breakfast</Link></li>
+                <ul>
+                    {
+                        
+                    }
+                    {/* <li><Link>Breakfast</Link></li>
                     <li><Link>Casseroles</Link></li>
-                    <li><Link>Desserts</Link></li>
-                </ul> */}
+                    <li><Link>Desserts</Link></li> */}
+                </ul>
             </nav>
             {
                 recipes.map(recipe => {
