@@ -22,6 +22,10 @@ function RecipesPage() {
         fetchCategories();
     }, []);
 
+    const getRecipes = () => {
+        console.log('In getRecipes for categories')
+    }
+
     return (
         <div>
             <h1>Recipes</h1>
@@ -31,7 +35,7 @@ function RecipesPage() {
                         categories.map(category => {
                             return (
                                 <ul>
-                                    <l1>{category.description}</l1>
+                                    <l1 onClick={() => getRecipes(category.id) }>{category.description}</l1>
                                 </ul>
                             )
                         })
