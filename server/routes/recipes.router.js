@@ -69,6 +69,18 @@ router.put('/:id', (req, res) => {
     });
 });
 
+router.put('/edit/:id', (req, res) => {
+    const recipeId = req.params.id;
+    // Not sure if this is necessary, but will keep it in for now
+    const recipeEdit = req.params.body;
+    const queryText = `UPDATE "recipes" SET "recipe_name" = $1, "ingredients" = $2, "instructions" = $3 WHERE "id"= $4;`;
+    pool.query(queryText, [recipeId]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        res.sendStatus(500);
+    })
+})
+
 router.delete('/:id', (req, res) => {
     const deleteId = req.params.id;
     let queryText = `DELETE FROM "recipes" WHERE "id"=$1;`;

@@ -37,10 +37,10 @@ function RecipesPage() {
     }
 
     return (
-        <div>
+        <div className="recipePage">
             <h1>Recipes</h1>
-            <h4>Categories</h4>
             <nav className="categoryNav">
+                <h4>Categories</h4>
                 {
                     categories.map(category => {
                         return (
