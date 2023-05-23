@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', (req, res) => {
     const recipeId = req.params.id;
-    const queryText = `UPDATE "recipes" SET "notes" WHERE "id"=$1;`;
+    const queryText = `UPDATE "recipes" SET "notes" = $1 WHERE "id"=$2;`;
     pool.query(queryText, [recipeId]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
