@@ -78,7 +78,7 @@ function App() {
           <ProtectedRoute exact path="/addRecipe">
             <AddRecipe />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/recipeCard">
+          <ProtectedRoute exact path="/recipeCard/:id">
             <RecipeCard />
           </ProtectedRoute>
 

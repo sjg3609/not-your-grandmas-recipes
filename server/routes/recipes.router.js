@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     // GET route code here
     const queryText = `SELECT * FROM "recipes" ORDER BY "id" ASC
-                       JOIN "categories" ON "categories"."id" = "recipes"."category_id";`;
+                       `;
     pool.query(queryText).then(result => {
         res.send(result.rows);
     }).catch(error => {

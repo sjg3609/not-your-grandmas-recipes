@@ -10,8 +10,23 @@ function* getRecipes() {
     }
 }
 
+function* recipeDetails(action) {
+    try {
+        const recipe = yield axios.get(`/api/recipes/${action.payload}`)
+        if (recipe.data.length > 0) {
+            yield put({ type: 'SET_DETAILS', payload: recipe.data[0] });
+        } else {
+            yield put({ type: 'SET_DETAILS', payload: {} });
+            alert('Recipe not found!');
+        }
+    } catch (error) {
+        console.log(`Error in recipeDetails ${error}`);
+    }
+}
+
 function* recipeSaga() {
     yield takeEvery('FETCH_RECIPES', getRecipes);
+    yield takeEvery('FETCH_DETAILS', recipeDetails);
 }
 
 export default recipeSaga;

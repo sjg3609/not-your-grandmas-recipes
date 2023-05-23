@@ -22,14 +22,14 @@ function RecipesPage() {
     }
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_RECIPES' });
+        // dispatch({ type: 'FETCH_RECIPES' });
         fetchCategories();
     }, []);
 
-    const getRecipes = () => {
+    const getRecipes = (id) => {
         console.log('In getRecipes for categories')
-        // dispatch({ type: 'FETCH_RECIPES' });
-        history.push('/recipeCard');
+        dispatch({ type: 'FETCH_RECIPES', payload: id });
+        // history.push('/recipeCard');
     }
 
     const recipeDetails = (id) => {
@@ -41,23 +41,23 @@ function RecipesPage() {
         <div>
             <h1>Recipes</h1>
             <h4>Categories</h4>
-            <nav className="recipePage"> 
-                    {
-                        categories.map(category => {
-                            return (
-                                <ul>
-                                    <l1 onClick={() => getRecipes(category.id) }>{category.description}</l1>
-                                </ul>
-                            )
-                        })
-                    }
+            <nav className="recipePage">
+                {
+                    categories.map(category => {
+                        return (
+                            <ul>
+                                <l1 onClick={() => getRecipes(category.id) }>{category.description}</l1>
+                            </ul>
+                        )
+                    })
+                }
             </nav>
             <div className="recipes">
                 {
                     recipes.map(recipe => {
                         return (
                             <div key={recipe.id}>
-                                <h3>{recipe.recipe_name}</h3>
+                                <h3 onClick={() => recipeDetails(recipe.id)}>{recipe.recipe_name}</h3>
                             </div>
                         )
                     })
