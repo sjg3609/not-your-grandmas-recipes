@@ -95,6 +95,10 @@ function EditRecipe() {
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                 </div>
+                Notes:
+                <div className="notesField">
+                    <input type="text" placeholder="Enter Notes" />
+                </div>
                 <input type="submit" onSubmit={submitRecipe} />
             </form>
         </div>

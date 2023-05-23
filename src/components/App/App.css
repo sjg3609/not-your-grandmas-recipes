@@ -119,3 +119,16 @@ h1 {
   flex-direction: row;
   text-align: center;
 }
+
+/* .categoryNav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  color: white;
+  overflow-x: hidden;
+  padding-top: 20px;
+} */

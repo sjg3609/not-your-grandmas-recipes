@@ -24,11 +24,9 @@ function RecipesPage() {
     const getRecipes = (id) => {
         console.log('In getRecipes for categories')
         dispatch({ type: 'FETCH_RECIPES', payload: id });
-        // history.push('/recipeCard');
     }
 
     useEffect(() => {
-        // dispatch({ type: 'FETCH_RECIPES' });
         fetchCategories();
         getRecipes();
     }, []);
@@ -42,7 +40,7 @@ function RecipesPage() {
         <div>
             <h1>Recipes</h1>
             <h4>Categories</h4>
-            <nav className="recipePage">
+            <nav className="categoryNav">
                 {
                     categories.map(category => {
                         return (
