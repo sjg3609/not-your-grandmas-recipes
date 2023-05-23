@@ -12,6 +12,10 @@ function RecipeCard() {
 
     console.log('Checking recipe details', recipe);
 
+    const fetchDetails = () => {
+        dispatch({ type: 'FETCH_DETAILS', payload: id });
+    }
+
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
     }, []);
@@ -19,7 +23,7 @@ function RecipeCard() {
     const deleteRecipe = () => {
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
             console.log(response);
-            dispatch({ type: 'FETCH_DETAILS', payload: id });
+            fetchDetails();
             history.goBack();
         }).catch((error) => {
             console.log(`Error in DELETE ${error}`);

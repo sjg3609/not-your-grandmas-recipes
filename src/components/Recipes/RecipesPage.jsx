@@ -21,16 +21,17 @@ function RecipesPage() {
         dispatch({ type: 'FETCH_CATEGORIES' });
     }
 
-    useEffect(() => {
-        // dispatch({ type: 'FETCH_RECIPES' });
-        fetchCategories();
-    }, []);
-
     const getRecipes = (id) => {
         console.log('In getRecipes for categories')
         dispatch({ type: 'FETCH_RECIPES', payload: id });
         // history.push('/recipeCard');
     }
+
+    useEffect(() => {
+        // dispatch({ type: 'FETCH_RECIPES' });
+        fetchCategories();
+        getRecipes();
+    }, []);
 
     const recipeDetails = (id) => {
         console.log('In recipeDetails');
@@ -46,7 +47,7 @@ function RecipesPage() {
                     categories.map(category => {
                         return (
                             <ul>
-                                <l1 onClick={() => getRecipes(category.id) }>{category.description}</l1>
+                                <l1 onClick={() => getRecipes(category.id)}>{category.description}</l1>
                             </ul>
                         )
                     })
