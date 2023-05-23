@@ -40,11 +40,11 @@ function RecipesPage() {
         <div className="recipePage">
             <h1>Recipes</h1>
             <nav className="categoryNav">
-                <h4>Categories</h4>
+                <h4 className="categoriesHeader">Categories</h4>
                 {
                     categories.map(category => {
                         return (
-                            <ul>
+                            <ul className="categories">
                                 <l1 onClick={() => getRecipes(category.id)}>{category.description}</l1>
                             </ul>
                         )

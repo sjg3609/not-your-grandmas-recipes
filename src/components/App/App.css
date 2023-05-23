@@ -121,30 +121,44 @@ h1 {
 }
 
 .recipePage {
-  column-count: 2;
-  column-fill: balance;
+  /* column-count: 2;
+  column-fill: unset; */
   margin: 20px;
-  padding: 40px;
+  /* padding: 20px; */
 }
 
+/* The sidebar menu */
 .categoryNav {
-  height:auto;
-  width: 100px; /* Set a width if you like */
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 180px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  /* top: 0; Stay at the top */
+  left: 0;
+  background-color: #d7d5d5; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 10px;
+  color: #818181;
 }
 
-.categoryNav a {
-  background-color: #6f6c6c3f; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove underline from links */
+/* The navigation menu links */
+.categoryNav ul {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
 }
 
-.categoryNav a:hover {
-  background-color: #ccc; /* Dark grey background on mouse-over */
+/* When you mouse over the navigation links, change their color */
+.categoryNav ul:hover {
+  color: #f1f1f1;
 }
 
-.categoryNav a.active {
-  background-color: #04AA6D; /* Add a green color to the "active/current" link */
-  color: white;
+.recipes {
+  text-align: center;
+}
+
+.categoriesHeader {
+  text-align: center;
 }
