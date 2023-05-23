@@ -15,6 +15,21 @@ router.get('/', (req, res) => {
     })
 });
 
+// new GET route for the specific id that we want on the RecipeCard component
+
+router.get(':id', (req, res) => {
+    let id = req.params.id;
+    const queryText = `SELECT recipes.*, categories.description AS category FROM recipes
+                       JOIN categories ON recipes.category_id = categories.id
+                       WHERE recipes.id = $1;`;
+    pool.query(queryText, [id]).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(`Error in completing SELECT recipe query ${error}`);
+        res.sendStatus(500);
+    });                  
+});
+
 router.post('/', async (req, res) => {
     const db = await pool.connect();
     // POST route code here
