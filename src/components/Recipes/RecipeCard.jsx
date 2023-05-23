@@ -16,9 +16,11 @@ function RecipeCard() {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
     }, []);
 
-    const deleteRecipe = (id) => {
-        axios.delete(`/api/recipes/${id}`).then((response) => {
+    const deleteRecipe = () => {
+        axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
             console.log(response);
+            dispatch({ type: 'FETCH_DETAILS', payload: id });
+            history.goBack();
         }).catch((error) => {
             console.log(`Error in DELETE ${error}`);
             alert('Something went wrong!');
