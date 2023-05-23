@@ -70,7 +70,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    const deleteId = Number(req.params.id);
+    const deleteId = req.params.id;
     let queryText = `DELETE FROM "recipes" WHERE "id"=$1;`;
     pool.query(queryText, [deleteId]).then((result) => {
         res.sendStatus(200);

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-
+import axios from 'axios';
 
 function RecipeCard() {
 
@@ -14,7 +14,30 @@ function RecipeCard() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
-    }, [])
+    }, []);
+
+    const deleteRecipe = (id) => {
+        axios.delete(`/api/recipes/${id}`).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(`Error in DELETE ${error}`);
+            alert('Something went wrong!');
+        })
+    }
+
+    const addNote = () => {
+        axios.put(`/api/recipes`).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(`Error in PUT for notes ${error}`);
+            alert('Something went wrong!');
+        })
+    }
+
+    const editRecipe = (id) => {
+        history.push(`/editRecipe/${id}`);
+
+    }
 
     const goBack = () => {
         history.goBack();
@@ -32,18 +55,10 @@ function RecipeCard() {
                 <p>{recipe.instructions}</p>
                 <h4>Notes:</h4>
                 <p>{recipe.notes}</p>
-                <button>Add Note</button>
-                <button>Edit Recipe</button>
-                <button>Delete Recipe</button>
+                <button onClick={addNote}>Add Note</button>
+                <button onClick={editRecipe}>Edit Recipe</button>
+                <button onClick={deleteRecipe}>Delete Recipe</button>
             </div>
-            {/* {
-                recipes.map(recipe => {
-                    return (
-                       
-                    )
-                })
-            } */}
-
         </div>
     )
 }
