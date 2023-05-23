@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 // new GET route for the specific id that we want on the RecipeCard component
 
-router.get(':id', (req, res) => {
+router.get('/:id', (req, res) => {
     let id = req.params.id;
     const queryText = `SELECT recipes.*, categories.description AS category FROM recipes
                        JOIN categories ON recipes.category_id = categories.id

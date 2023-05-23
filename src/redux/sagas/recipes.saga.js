@@ -15,9 +15,6 @@ function* recipeDetails(action) {
         const recipe = yield axios.get(`/api/recipes/${action.payload}`)
         if (recipe.data.length > 0) {
             yield put({ type: 'SET_DETAILS', payload: recipe.data[0] });
-        } else {
-            yield put({ type: 'SET_DETAILS', payload: {} });
-            alert('Recipe not found!');
         }
     } catch (error) {
         console.log(`Error in recipeDetails ${error}`);

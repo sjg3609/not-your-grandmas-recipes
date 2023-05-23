@@ -57,7 +57,7 @@ function RecipesPage() {
                     recipes.map(recipe => {
                         return (
                             <div key={recipe.id}>
-                                <h3 onClick={() => recipeDetails(recipe.id)}>{recipe.recipe_name}</h3>
+                                <h4 onClick={() => recipeDetails(recipe.id)}>{recipe.recipe_name}</h4>
                             </div>
                         )
                     })
