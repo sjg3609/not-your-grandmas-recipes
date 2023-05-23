@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import RecipesPage from '../Recipes/RecipesPage';
 import AddRecipe from '../Recipes/AddRecipe';
+import RecipeCard from '../Recipes/RecipeCard';
 import './App.css';
 
 
@@ -76,6 +77,9 @@ function App() {
 
           <ProtectedRoute exact path="/addRecipe">
             <AddRecipe />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/recipeCard">
+            <RecipeCard />
           </ProtectedRoute>
 
           <Route

@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 
 
 function RecipesPage() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const recipes = useSelector(store => store.recipesReducer);
     const categories = useSelector(store => store.categoryReducer);
+    const [recipeCategory, setRecipeCategory] = useState();
+    const { id } = useParams();
 
     console.log('Checking for recipes', recipes);
     console.log('Check categories', categories);
@@ -24,6 +28,13 @@ function RecipesPage() {
 
     const getRecipes = () => {
         console.log('In getRecipes for categories')
+        // dispatch({ type: 'FETCH_RECIPES' });
+        history.push('/recipeCard');
+    }
+
+    const recipeDetails = (id) => {
+        console.log('In recipeDetails');
+        history.push(`/recipeCard/${id}`)
     }
 
     return (
@@ -41,6 +52,17 @@ function RecipesPage() {
                         })
                     }
             </nav>
+            <div className="recipes">
+                {
+                    recipes.map(recipe => {
+                        return (
+                            <div key={recipe.id}>
+                                <h3>{recipe.recipe_name}</h3>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

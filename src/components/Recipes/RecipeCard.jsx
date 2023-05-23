@@ -8,12 +8,21 @@ function RecipeCard() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    const recipe = useSelector(store => store.recipes);
+    const recipe = useSelector(store => store.recipesReducer);
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_RECIPES' });
+    }, [])
+
+    const goBack = () => {
+        history.goBack('/recipes');
+    }
 
     return (
         <div className="recipeCard">
             <h1>Recipe Card</h1>
-            <h3>{recipe.name}</h3>
+            <button onClick={goBack}>Go Back</button>
+            <h3>{recipe.recipe_name}</h3>
             <p>{recipe.ingredients}</p>
             <p>{recipe.instructions}</p>
             <p>{recipe.notes}</p>
