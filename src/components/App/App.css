@@ -129,16 +129,17 @@ h1 {
 
 /* The sidebar menu */
 .categoryNav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
+  height: 100em; /* Full-height: remove this if you want "auto" height */
   width: 180px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  /* top: 0; Stay at the top */
+  /* z-index: 1; */
+  /* top: 0;  */
   left: 0;
   background-color: #d7d5d5; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
   color: #818181;
+  
 }
 
 /* The navigation menu links */
@@ -148,11 +149,13 @@ h1 {
   font-size: 16px;
   color: #818181;
   display: block;
+  border-bottom: #444;
 }
 
 /* When you mouse over the navigation links, change their color */
 .categoryNav ul:hover {
   color: #f1f1f1;
+  background-color: #6d6d6d;
 }
 
 .recipes {
@@ -161,4 +164,7 @@ h1 {
 
 .categoriesHeader {
   text-align: center;
+  background-color: #444;
+  color:white;
+  padding: 20px;
 }

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  padding: 25px;
   margin: 0 0 30px;
   background-color: #4cd2ff;
   overflow: hidden;
@@ -37,8 +37,8 @@
   outline: 0;
 }
 
-.navLink:hover {
+/* .navLink:hover {
   background-color: #41bbe382;
-}
+} */
 
 
