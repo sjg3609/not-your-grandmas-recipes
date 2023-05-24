@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import './AddRecipe.css';
 
 
 function EditRecipe() {
+
+    const recipes = useSelector(store => store.recipesReducer);
+    const category = useSelector (store => store.categoryReducer);
 
     const dispatch = useDispatch();
 
@@ -42,11 +46,11 @@ function EditRecipe() {
                 <div className="categoryDiv"> 
                     Category:
                     <br />
-                    <input type="text" placeholder="Category" onChange={categoryChange} />
+                    <input type="text" placeholder="Category" onChange={categoryChange} defaultValue={category.description}/>
                     <br />
                     Recipe Name:
                     <br />
-                    <input type="text" placeholder="Recipe Name" onChange={handleRecipeName} />
+                    <input type="text" placeholder="Recipe Name" onChange={handleRecipeName} value={recipes.recipe_name}/>
                     <br />
                 </div>
                
