@@ -53,9 +53,9 @@ function AddRecipe() {
     }
 
     return (
-        <div className="addRecipes">
+        <div>
             <h1>Add Recipe!</h1>
-            <form>
+            <form className="addRecipes">
                 <div className="categoryDiv"> 
                     Category:
                     <br />
@@ -66,7 +66,6 @@ function AddRecipe() {
                     <input type="text" placeholder="Recipe Name" onChange={handleRecipeName} />
                     <br />
                 </div>
-               
                 <div className="ingredientsFields">
                     Ingredients:
                     <br />
@@ -114,7 +113,7 @@ function AddRecipe() {
                 </div>
                 
             </form>
-            <button type="submit" onClick={() => submitRecipe()}>Submit</button>
+            <button type="submit" onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
         </div>
     )
 }

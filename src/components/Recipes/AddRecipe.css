@@ -3,9 +3,21 @@
     column-fill: balance;
     margin: 20px;
     padding: 40px;
+    /* display: block;
+    justify-content: center; */
+    float:inline-start;
     
     
 }
+
+h1 {
+    text-align: center;
+}
+
+/* button {
+    float: right;
+    margin-right: auto;
+} */
 
 /* .categoryDiv {
     column-fill: balance;

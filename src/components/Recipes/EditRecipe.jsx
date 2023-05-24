@@ -40,9 +40,9 @@ function EditRecipe() {
     }
 
     return (
-        <div className="addRecipes">
+        <div >
             <h1>Edit Recipe!</h1>
-            <form>
+            <form className="addRecipes">
                 <div className="categoryDiv"> 
                     Category:
                     <br />

@@ -131,9 +131,8 @@ h1 {
 .categoryNav {
   height: 100em; /* Full-height: remove this if you want "auto" height */
   width: 180px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  /* z-index: 1; */
-  /* top: 0;  */
+  position: absolute;
+  top: 129px;
   left: 0;
   background-color: #d7d5d5; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
