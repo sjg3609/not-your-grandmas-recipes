@@ -138,7 +138,7 @@ h1 {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
   color: #818181;
-  
+  border-bottom: #444;
 }
 
 /* The navigation menu links */

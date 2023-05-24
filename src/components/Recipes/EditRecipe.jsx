@@ -79,7 +79,6 @@ function EditRecipe() {
                 <br />
                 <br />
                 <br />
-                <br />
                 Instructions:
                 <div className="instructionsFields">
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
@@ -103,8 +102,8 @@ function EditRecipe() {
                 <div className="notesField">
                     <input type="text" placeholder="Enter Notes" />
                 </div>
-                <input type="submit" onSubmit={submitRecipe} />
             </form>
+            <button type="submit" onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
         </div>
     )
 }
