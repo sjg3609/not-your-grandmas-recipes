@@ -56,7 +56,7 @@ function AddRecipe() {
         <div>
             <h1>Add Recipe!</h1>
             <form className="addRecipes">
-                <div className="categoryDiv"> 
+                <div className="categoryDiv">
                     Category:
                     <br />
                     <input type="text" placeholder="Category" onChange={categoryChange} />
@@ -86,14 +86,9 @@ function AddRecipe() {
                     <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
                     <br />
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                Instructions:
                 <div className="instructionsFields">
+                    Instructions:
+                    <br />
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
@@ -111,9 +106,9 @@ function AddRecipe() {
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                 </div>
-                
+
             </form>
-            <button type="submit" onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
+            <button type="submit" onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
         </div>
     )
 }

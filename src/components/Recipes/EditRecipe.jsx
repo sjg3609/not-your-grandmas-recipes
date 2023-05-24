@@ -74,13 +74,9 @@ function EditRecipe() {
                     <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
                     <br />
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                Instructions:
                 <div className="instructionsFields">
+                    Instructions:
+                    <br />
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
@@ -98,8 +94,10 @@ function EditRecipe() {
                     <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
                     <br />
                 </div>
-                Notes:
+                
                 <div className="notesField">
+                    Notes:
+                    <br />
                     <input type="text" placeholder="Enter Notes" />
                 </div>
             </form>

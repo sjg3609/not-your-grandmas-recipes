@@ -3,9 +3,8 @@
     column-fill: balance;
     margin: 20px;
     padding: 40px;
-    /* display: block;
-    justify-content: center; */
-    float:inline-start;
+    display: flex;
+    justify-content: center;
     
     
 }
@@ -19,9 +18,10 @@ h1 {
     margin-right: auto;
 } */
 
-/* .categoryDiv {
-    column-fill: balance;
-} */
+.categoryDiv {
+   display: flexbox;
+   justify-self: center;
+}
 
 /* .ingredientsFields {
     column-count: 1;

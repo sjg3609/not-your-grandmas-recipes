@@ -138,7 +138,6 @@ h1 {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
   color: #818181;
-  border-bottom: #444;
 }
 
 /* The navigation menu links */
@@ -148,7 +147,7 @@ h1 {
   font-size: 16px;
   color: #818181;
   display: block;
-  border-bottom: #444;
+  border-bottom: 2px solid #444;
 }
 
 /* When you mouse over the navigation links, change their color */
