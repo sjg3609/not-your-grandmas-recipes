@@ -4,7 +4,7 @@ import axios from 'axios';
 function* addNewRecipe() {
     try {
         const newRecipe = yield axios.post('/api/recipes');
-        yield put({ type: 'SET_RECIPE' });
+        yield put({ type: 'SET_RECIPE', payload: newRecipe });
     } catch (error) {
         console.log(`Error in POST recipes ${error}`);
     }
