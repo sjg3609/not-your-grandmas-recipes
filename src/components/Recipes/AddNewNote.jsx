@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
 function AddNewNote() {
 
     const { id } = useParams();
+    const history = useHistory();
 
     const submitNote = () => {
         axios.put(`/api/recipes/${id}`).then((response) => {
@@ -15,8 +16,14 @@ function AddNewNote() {
         })
     }
 
+
+    const goBack = () => {
+        history.goBack();
+    } 
+    
     return (
         <div>
+            
             <form>
                 <div className="notesField">
                     Notes:
@@ -25,6 +32,7 @@ function AddNewNote() {
                 </div>
             </form >
             <button type="submit" onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</button>
+            <button onClick={goBack}>Go Back</button>
         </div >
     )
 }
