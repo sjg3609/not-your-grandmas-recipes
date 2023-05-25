@@ -101,7 +101,7 @@ function EditRecipe() {
                     <input type="text" placeholder="Enter Notes" />
                 </div>
             </form>
-            <button type="submit" onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
+            <button onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
         </div>
     )
 }

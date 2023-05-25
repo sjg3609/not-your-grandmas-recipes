@@ -109,7 +109,7 @@ function AddRecipe() {
                 </div>
 
             </form>
-            <button type="submit" onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
+            <button onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
         </div>
     )
 }
