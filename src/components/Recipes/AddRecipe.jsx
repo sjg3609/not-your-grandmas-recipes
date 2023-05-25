@@ -31,26 +31,26 @@ function AddRecipe() {
         dispatch({ type: 'SET_CATEGORY', payload: event.target.value });
 
     }
-
-    const submitRecipe = (event) => {
-        // event.preventDefault();
-        // dispatch({ type: 'SET_RECIPE' });
-        axios({
-            method: 'POST',
-            url: '/api/recipes',
-            data: {
-                user_id: user.id,
-                recipe_name: handleRecipeName,
-                ingredients: handleIngredientChange,
-                instructions: handleInstructionsChange,
-            }
-        }).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.log(`Error in POST for newRecipe ${error}`)
-            alert('Something went wrong!');
-        })
-    }
+    // Was trying to see if I could get it to push without using the async await first and it still is not working as intended
+    // const submitRecipe = (event) => {
+    //     // event.preventDefault();
+    //     // dispatch({ type: 'SET_RECIPE' });
+    //     axios({
+    //         method: 'POST',
+    //         url: '/api/recipes',
+    //         data: {
+    //             user_id: user.id,
+    //             recipe_name: handleRecipeName,
+    //             ingredients: handleIngredientChange,
+    //             instructions: handleInstructionsChange,
+    //         }
+    //     }).then((response) => {
+    //         console.log(response);
+    //     }).catch((error) => {
+    //         console.log(`Error in POST for newRecipe ${error}`)
+    //         alert('Something went wrong!');
+    //     })
+    // }
 
     return (
         <div>

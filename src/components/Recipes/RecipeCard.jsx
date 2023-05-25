@@ -23,7 +23,7 @@ function RecipeCard() {
     const deleteRecipe = () => {
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
             console.log(response);
-            fetchDetails();
+            fetchDetails()
             history.goBack();
         }).catch((error) => {
             console.log(`Error in DELETE ${error}`);
@@ -32,17 +32,13 @@ function RecipeCard() {
     }
 
     const addNote = () => {
-        axios.put(`/api/recipes`).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.log(`Error in PUT for notes ${error}`);
-            alert('Something went wrong!');
-        })
+        history.push(`/addNote/${id}`);
+        // TODO: Finish this so that the notes push to /recipes
     }
 
     const editRecipe = (id) => {
         history.push(`/editRecipe/${id}`);
-
+        // TODO: Finish this so that the forms prepopulate with the data from the recipe card
     }
 
     const goBack = () => {

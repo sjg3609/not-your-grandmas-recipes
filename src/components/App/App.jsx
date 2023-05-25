@@ -24,6 +24,7 @@ import AddRecipe from '../Recipes/AddRecipe';
 import RecipeCard from '../Recipes/RecipeCard';
 import './App.css';
 import EditRecipe from '../Recipes/EditRecipe';
+import AddNewNote from '../Recipes/AddNewNote'
 
 
 function App() {
@@ -86,6 +87,9 @@ function App() {
 
           <ProtectedRoute exact path="/editRecipe/:id">
             <EditRecipe />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/addNote/:id">
+            <AddNewNote />
           </ProtectedRoute>
 
           <Route
