@@ -33,6 +33,7 @@ function AddRecipe() {
     }
     // Was trying to see if I could get it to push without using the async await first and it still is not working as intended
     const submitRecipe = (event) => {
+        dispatch({ type: 'SET_NEW_RECIPE' });
         // // event.preventDefault();
         // // dispatch({ type: 'SET_RECIPE' });
         // axios({

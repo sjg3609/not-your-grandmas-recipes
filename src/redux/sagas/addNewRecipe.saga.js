@@ -6,8 +6,12 @@ function* addNewRecipe() {
         const newRecipe = yield axios.post('/api/recipes');
         yield put({ type: 'SET_RECIPE', payload: newRecipe });
     } catch (error) {
-        console.log(`Error in POST recipes ${error}`);
+        console.log(`Error in addNewRecipe POST recipes ${error}`);
     }
 }
 
-export default addNewRecipe;
+function* addNewRecipeSaga() {
+    yield takeEvery('SET_NEW_RECIPE', addNewRecipe);
+}
+
+export default addNewRecipeSaga;

@@ -21,7 +21,7 @@ function AddNewNote() {
                 <div className="notesField">
                     Notes:
                     <br />
-                    <input type="text" placeholder="Enter Notes" style={{ width: '60%', height: '100px' }} />
+                    <input type="text" placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }} />
                 </div>
             </form >
             <button type="submit" onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</button>

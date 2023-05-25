@@ -40,11 +40,11 @@ router.post('/', async (req, res) => {
         const result = await db.query(queryText, [req.body]);
         // TODO: We should make sure that rows.length is > 0
         const recipeId = result.rows[0].id;
-        const recipes = [req.body.user_id, req.body.category_id, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
+        const recipes = [req.body.user_id, recipeId, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
         queryText = `INSERT INTO "recipes" ("user_id", "category_id", "recipe_name", "ingredients", "instructions", "notes") 
                      VALUES ($1, $2, $3, $4, $5, $6);`;
         for(let recipe of recipes) {
-            await db.query(queryText, [recipes, recipeId]);
+            await db.query(queryText, [recipe, recipeId]);
         }
         // Commits all of the queries
         await db.query('COMMIT');
