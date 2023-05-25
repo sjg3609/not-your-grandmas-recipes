@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     const recipeId = req.params.id;
     const recipeNote = req.body.notes
     const queryText = `UPDATE "recipes" SET "notes" = $1 WHERE "id"=$2;`;

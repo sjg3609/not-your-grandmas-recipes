@@ -8,12 +8,13 @@ function AddNewNote() {
     const history = useHistory();
 
     const submitNote = () => {
-        axios.put(`/api/recipes/${id}`).then((response) => {
+        axios.post(`/api/recipes/${id}`).then((response) => {
             console.log(response);
         }).catch((error) => {
             console.log(`Error in PUT for notes ${error}`);
             alert('Something went wrong!');
         })
+        history.goBack();
     }
 
 
