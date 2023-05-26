@@ -10,7 +10,7 @@ function AddNewNote() {
     const history = useHistory();
     const dispatch = useDispatch();
     const [newNoteToAdd, setNewNoteToAdd] = useState({ note: ''});
-    const note = useSelector(store => store.noteReducer);
+    // const note = useSelector(store => store.noteReducer);
 
 
     const newNote = (event) => {
@@ -23,7 +23,7 @@ function AddNewNote() {
         history.goBack();
     }
 
-    console.log('Checking note', note);
+    // console.log('Checking note', note);
 
 
     const goBack = () => {
