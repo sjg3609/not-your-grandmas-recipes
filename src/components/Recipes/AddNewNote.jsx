@@ -1,5 +1,6 @@
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import axios from 'axios';
 
 
@@ -8,21 +9,17 @@ function AddNewNote() {
     const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
+    const [newNoteToAdd, setNewNoteToAdd] = useState({ note: ''});
     const note = useSelector(store => store.noteReducer);
 
 
     const newNote = (event) => {
         event.preventDefault();
-        dispatch({ type: 'NEW_NOTE ', payload: event.target.value });
+        setNewNoteToAdd({...newNoteToAdd, note: event.target.value });
     }
 
     const submitNote = () => {
-        axios.post(`/api/recipes/${id}`).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.log(`Error in POST for notes ${error}`);
-            alert('Something went wrong!');
-        })
+        dispatch({ type: 'NEW_NOTE', payload: newNoteToAdd, setNewNoteToAdd: setNewNoteToAdd });
         history.goBack();
     }
 
@@ -40,7 +37,7 @@ function AddNewNote() {
                 <div className="notesField">
                     Notes:
                     <br />
-                    <input type="text" placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }} onChange={newNote} />
+                    <input type="text" value={newNoteToAdd.note} placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }} onChange={newNote} />
                 </div>
             </form >
             <button onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</button>
