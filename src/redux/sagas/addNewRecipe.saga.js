@@ -12,8 +12,8 @@ function* addNewRecipe() {
 
 function* addNewNote(action) {
     try {
-        yield axios.post(`/api/recipes`);
-        yield put({ type: 'SET_NEW_RECIPE' });
+        yield axios.post(`/api/recipes`, action.payload);
+        yield put({ type: 'FETCH_RECIPES' });
         action.setNewNoteToAdd('');
     } catch (error) {
         console.log(`Error in addNewNote ${error}`);

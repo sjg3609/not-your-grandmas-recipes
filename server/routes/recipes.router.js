@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
 
 router.post('/:id', (req, res) => {
     const recipeId = req.params.id;
-    const recipeNote = req.body.notes
+    const recipeNote = req.body;
     const queryText = `INSERT INTO "recipes" ("notes") VALUES ($1) WHERE "id"=$2;`;
     pool.query(queryText, [recipeId, recipeNote]).then((result) => {
         res.sendStatus(201);
@@ -70,12 +70,12 @@ router.post('/:id', (req, res) => {
     });
 });
 
-router.put('/edit/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const recipeId = req.params.id;
     // Not sure if this is necessary, but will keep it in for now
     const recipeEdit = req.params.body;
     const queryText = `UPDATE "recipes" SET "recipe_name" = $1, "ingredients" = $2, "instructions" = $3 WHERE "id"= $4;`;
-    pool.query(queryText, [recipeId]).then((result) => {
+    pool.query(queryText, [recipeId, recipeEdit]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         res.sendStatus(500);

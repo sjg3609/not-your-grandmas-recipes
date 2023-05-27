@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './AddRecipe.css';
 
 
@@ -8,7 +8,7 @@ function EditRecipe() {
 
     const recipes = useSelector(store => store.recipesReducer);
     const category = useSelector (store => store.categoryReducer);
-
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const handleRecipeName = (event) => {
@@ -37,6 +37,10 @@ function EditRecipe() {
     const submitRecipe = (event) => {
         event.preventDefault();
         dispatch({ type: 'SET_RECIPE' });
+    }
+
+    const goBack = () => {
+        history.goBack();
     }
 
     return (
@@ -101,6 +105,7 @@ function EditRecipe() {
                     <input type="text" placeholder="Enter Notes" />
                 </div>
             </form>
+            <button onClick={goBack} style={{float: 'left', margin: '40px'}}>Go Back</button>
             <button onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
         </div>
     )
