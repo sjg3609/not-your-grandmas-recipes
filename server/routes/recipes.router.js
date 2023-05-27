@@ -27,41 +27,25 @@ router.get('/:id', (req, res) => {
     }).catch((error) => {
         console.log(`Error in completing SELECT recipe query ${error}`);
         res.sendStatus(500);
-    });                  
+    });
 });
 
-router.post('/', async (req, res) => {
-    const db = await pool.connect();
-    // POST route code here
-    try {
-        // Tells Postgres to begin running the queries
-        await db.query('BEGIN');
-        let queryText = `INSERT INTO "categories" ("description") VALUES ($1) RETURNING "id";`;
-        const result = await db.query(queryText, [req.body]);
-        // TODO: We should make sure that rows.length is > 0
-        const recipeId = result.rows[0].id;
-        const recipes = [req.body.user_id, recipeId, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
-        queryText = `INSERT INTO "recipes" ("user_id", "category_id", "recipe_name", "ingredients", "instructions", "notes") 
-                     VALUES ($1, $2, $3, $4, $5, $6);`;
-        for(let recipe of recipes) {
-            await db.query(queryText, [recipe, recipeId]);
-        }
-        // Commits all of the queries
-        await db.query('COMMIT');
+router.post('/', (req, res) => {
+    const recipes = [req.body.user_id, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
+    const queryText = `INSERT INTO "recipes" ("user_id", "category_id", "recipe_name", "ingredients", "instructions") 
+                     VALUES ($1, $2, $3, $4, $5);`;
+    pool.query(queryText, recipes).then((result) => {
         res.sendStatus(200);
-    } catch (error) {
-        console.log(`ROLLBACK ${error}`);
-        await db.query('ROLLBACK');
+    }).catch((error) => {
+        console.log(`Error in POST recipe ${error}`);
         res.sendStatus(500);
-    } finally {
-        db.release();
-    }
+    });
 });
 
-router.post('/:id', (req, res) => {
+router.post('api/notes/:id', (req, res) => {
     const recipeId = req.params.id;
-    const recipeNote = req.body;
-    const queryText = `INSERT INTO "recipes" ("notes") VALUES ($1) WHERE "id"=$2;`;
+    const recipeNote = req.body.notes;
+    const queryText = `INSERT INTO "recipes" ("notes") VALUES ($1);`;
     pool.query(queryText, [recipeId, recipeNote]).then((result) => {
         res.sendStatus(201);
     }).catch((error) => {

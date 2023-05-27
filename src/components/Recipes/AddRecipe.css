@@ -1,35 +1,17 @@
 .addRecipes {
-    column-count: 2;
-    column-fill: balance;
     margin: 20px;
     padding: 40px;
     display: flex;
     justify-content: center;
-    
-    
 }
 
 h1 {
     text-align: center;
 }
 
-/* button {
-    float: right;
-    margin-right: auto;
-} */
-
 .categoryDiv {
    display: flexbox;
    justify-self: center;
 }
 
-/* .ingredientsFields {
-    column-count: 1;
-    column-fill: balance;
-}
-
-.instructionFields {
-    column-count: 1;
-    column-fill: balance;
-} */
 

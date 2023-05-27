@@ -40,7 +40,6 @@ function RecipesPage() {
         <div className="recipePage">
             <h1>Recipes</h1>
             <nav className="categoryNav" style={{textalign: 'center',}}>
-                {/* Categories */}
                 <h4 className="categoriesHeader" style={{padding: '25px', top: '10px'}}>Categories</h4>
                 {
                     categories.map(category => {

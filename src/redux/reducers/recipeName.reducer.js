@@ -1,4 +1,4 @@
-const recipeNameReducer = (state = [], action) => {
+const recipeNameReducer = (state = '', action) => {
     switch (action.type) {
         case 'SET_RECIPE_NAME':
             return action.payload;
