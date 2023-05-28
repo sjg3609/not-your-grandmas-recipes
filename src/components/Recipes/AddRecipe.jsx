@@ -9,7 +9,7 @@ function AddRecipe() {
     const dispatch = useDispatch();
     const user = useSelector(store => store.user);
     const categories = useSelector(store => store.categoryReducer);
-    const [categoryId, setCategoryId] = useState();
+    const [categoryId, setCategoryId] = useState({id: categories.id});
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [instructions, setInstructions] = useState('');
@@ -36,6 +36,8 @@ function AddRecipe() {
         } });
     }
 
+    console.log(`Checking categoryId`, categoryId);
+
     return (
         <div>
             <h1>Add Recipe!</h1>
@@ -46,7 +48,7 @@ function AddRecipe() {
                     {
                         categories.map(category => {
                             return (
-                                <option key={category.id} onChange={(event) => setCategoryId(event.target.value)}>{category.description}</option>
+                                <option key={category.id} onChange={(event) => setCategoryId(categories.div)}>{category.description}</option>
                             )
                         })
                     }

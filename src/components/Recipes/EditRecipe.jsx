@@ -7,7 +7,7 @@ import './AddRecipe.css';
 function EditRecipe() {
 
     const { id } = useParams();
-    const recipes = useSelector(store => store.recipesReducer);
+    const recipe = useSelector(store => store.recipeDetails);
     const categories = useSelector(store => store.categoryReducer);
     const history = useHistory();
     const dispatch = useDispatch();
@@ -52,13 +52,13 @@ function EditRecipe() {
                     </select>
                     Recipe Name:
                     <br />
-                    <input type="text" placeholder="Recipe Name" onChange={(event) => setRecipeName(event.target.value)} value={recipes.recipe_name} />
+                    <input type="text" placeholder="Recipe Name" onChange={(event) => setRecipeName(event.target.value)} value={recipe.recipe_name} />
                     Ingredients:
                     <br />
-                    <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></textarea>
+                    <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)} value={recipe.ingredients}></textarea>
                     Instructions:
                     <br />
-                    <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
+                    <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)} value={recipe.instructions}></textarea>
             </form>
             <button onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</button>
             <button onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
