@@ -31,7 +31,7 @@ function RecipeCard() {
         })
     }
 
-    const addNote = () => {
+    const addNote = (id) => {
         history.push(`/addNote/${id}`);
         // TODO: Finish this so that the notes push to /recipes
     }
@@ -57,7 +57,7 @@ function RecipeCard() {
                 <p>{recipe.instructions}</p>
                 <h4>Notes:</h4>
                 <p>{recipe.notes}</p>
-                <button onClick={addNote}>Add Note</button>
+                <button onClick={() => addNote(recipe.id)}>Add Note</button>
                 <button onClick={() => editRecipe(recipe.id)}>Edit Recipe</button>
                 <button onClick={deleteRecipe}>Delete Recipe</button>
             </div>
