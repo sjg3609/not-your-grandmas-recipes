@@ -14,7 +14,6 @@ function AddRecipe() {
     const [ingredients, setIngredients] = useState('');
     const [instructions, setInstructions] = useState('');
 
-    // const [newRecipe, setNewRecipe] = useState();
 
     const fetchCategories = () => {
         dispatch({ type: 'FETCH_CATEGORIES' });
@@ -26,41 +25,15 @@ function AddRecipe() {
 
     console.log(`Checking for categories`, categories);
 
-    // Trying something new and following more closely to how the Register Form works
 
-    // const handleRecipeName = (event) => {
-    //     event.preventDefault();
-    //     const action = { type: 'SET_RECIPE_NAME', payload: event.target.value };
-    //     dispatch(action);
-    // }
-
-    // const handleIngredientChange = (event) => {
-    //     event.preventDefault();
-    //     const action = { type: 'SET_INGREDIENTS', payload: event.target.value };
-    //     dispatch(action);
-    // }
-
-    // const handleInstructionsChange = (event) => {
-    //     event.preventDefault();
-    //     const action = { type: 'SET_INSTRUCTIONS', payload: event.target.value };
-    //     dispatch(action);
-    // }
-
-    const categoryChange = (event) => {
-        dispatch({ type: 'SET_CATEGORY', payload: event.target.value });
-    }
-
-    // Was trying to see if I could get it to push without using the async await first and it still is not working as intended
     const submitRecipe = (event) => {
         dispatch({ type: 'SET_NEW_RECIPE', payload: {
             user_id: user.id,
-            category_id: categoryChange,
+            category_id: categoryId,
             recipe_name: recipeName,
             ingredients: ingredients,
             instructions: instructions,
         } });
-        // event.preventDefault();
-        // dispatch({ type: 'SET_RECIPE' });
     }
 
     return (
@@ -73,19 +46,17 @@ function AddRecipe() {
                     {
                         categories.map(category => {
                             return (
-                                <option key={category.id}>{category.description}</option>
+                                <option key={category.id} onChange={(event) => setCategoryId(event.target.value)}>{category.description}</option>
                             )
                         })
                     }
                 </select>
-
                 Recipe Name:
                 <br />
                 <input type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)} />
                 Ingredients:
                 <br />
-                <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}>
-                </textarea>
+                <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></textarea>
                 Instructions:
                 <br />
                 <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>

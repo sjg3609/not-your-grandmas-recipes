@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './AddRecipe.css';
@@ -6,33 +6,25 @@ import './AddRecipe.css';
 
 function EditRecipe() {
 
+    const { id } = useParams();
     const recipes = useSelector(store => store.recipesReducer);
-    const category = useSelector (store => store.categoryReducer);
+    const categories = useSelector(store => store.categoryReducer);
     const history = useHistory();
     const dispatch = useDispatch();
+    const [categoryId, setCategoryId] = useState({ id });
+    const [recipeName, setRecipeName] = useState('');
+    const [ingredients, setIngredients] = useState('');
+    const [instructions, setInstructions] = useState('');
 
-    const handleRecipeName = (event) => {
-        event.preventDefault();
-        const action = { type: 'SET_RECIPE_NAME', payload: event.target.value };
-        dispatch(action);
+    const fetchCategories = () => {
+        dispatch({ type: 'FETCH_CATEGORIES' });
     }
 
-    const handleIngredientChange = (event) => {
-        event.preventDefault();
-        const action = { type: 'SET_INGREDIENTS', payload: event.target.value };
-        dispatch(action);
-    }
+    useEffect(() => {
+        fetchCategories();
+    }, []);
 
-    const handleInstructionsChange = (event) => {
-        event.preventDefault();
-        const action = { type: 'SET_INSTRUCTIONS', payload: event.target.value };
-        dispatch(action);
-    }
 
-    const categoryChange = (event) => {
-        dispatch({ type: 'SET_CATEGORY', payload: event.target.value });
-
-    }
 
     const submitRecipe = (event) => {
         event.preventDefault();
@@ -47,66 +39,29 @@ function EditRecipe() {
         <div >
             <h1>Edit Recipe!</h1>
             <form className="addRecipes">
-                <div className="categoryDiv"> 
                     Category:
                     <br />
-                    <input type="text" placeholder="Category" onChange={categoryChange} defaultValue={category.description}/>
-                    <br />
+                    <select onChange={(event) => setCategoryId(event.target.value)}>
+                        {
+                            categories.map(category => {
+                                return (
+                                    <option key={category.id}>{category.description}</option>
+                                )
+                            })
+                        }
+                    </select>
                     Recipe Name:
                     <br />
-                    <input type="text" placeholder="Recipe Name" onChange={handleRecipeName} value={recipes.recipe_name}/>
-                    <br />
-                </div>
-               
-                <div className="ingredientsFields">
+                    <input type="text" placeholder="Recipe Name" onChange={(event) => setRecipeName(event.target.value)} value={recipes.recipe_name} />
                     Ingredients:
                     <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                    <input type="text" placeholder="Ingredients" onChange={handleIngredientChange} />
-                    <br />
-                </div>
-                <div className="instructionsFields">
+                    <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></textarea>
                     Instructions:
                     <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                    <input type="text" placeholder="Instructions" onChange={handleInstructionsChange} />
-                    <br />
-                </div>
-                
-                <div className="notesField">
-                    Notes:
-                    <br />
-                    <input type="text" placeholder="Enter Notes" />
-                </div>
+                    <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
             </form>
-            <button onClick={goBack} style={{float: 'left', margin: '40px'}}>Go Back</button>
-            <button onClick={() => submitRecipe()} style={{float: 'right', margin: '40px'}}>Submit</button>
+            <button onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</button>
+            <button onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
         </div>
     )
 }

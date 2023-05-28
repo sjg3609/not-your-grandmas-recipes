@@ -58,7 +58,7 @@ function RecipeCard() {
                 <h4>Notes:</h4>
                 <p>{recipe.notes}</p>
                 <button onClick={addNote}>Add Note</button>
-                <button onClick={editRecipe}>Edit Recipe</button>
+                <button onClick={() => editRecipe(recipe.id)}>Edit Recipe</button>
                 <button onClick={deleteRecipe}>Delete Recipe</button>
             </div>
         </div>
