@@ -27,7 +27,7 @@ function EditRecipe() {
 
 
     const submitRecipe = (id) => {
-        dispatch({ type: 'UPDATE_RECIPE', payload:{ recipeId: id, recipe_name: recipeName, ingredients: ingredients, instructions: instructions }});
+        dispatch({ type: 'UPDATE_RECIPE', payload:{ recipe_name: recipeName, ingredients: ingredients, instructions: instructions }});
     }
 
     const goBack = () => {
@@ -67,8 +67,9 @@ function EditRecipe() {
                     <br />
                     <textarea type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></textarea>
             </form>
-            <button onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</button>
-            <button onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
+            <br />
+            <button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</button>
+            <button onClick={() => submitRecipe()} style={{ float: 'right', marginRight: '45%' }}>Submit</button>
         </div>
     )
 }

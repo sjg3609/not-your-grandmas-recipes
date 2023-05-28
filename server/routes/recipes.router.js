@@ -59,9 +59,9 @@ router.put('/:id', (req, res) => {
     const recipeId = req.params.id;
     // Not sure if this is necessary, but will keep it in for now
     const recipeEdit = [req.body.recipe_name, req.body.ingredients, req.body.instructions];
-    console.log(req.params.id, req.params.body)
+    console.log(recipeEdit);
     const queryText = `UPDATE "recipes" SET "recipe_name" = $1, "ingredients" = $2, "instructions" = $3 WHERE "id"= $4;`;
-    pool.query(queryText, [recipeId, recipeEdit]).then((result) => {
+    pool.query(queryText, [recipeEdit]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         res.sendStatus(500);
