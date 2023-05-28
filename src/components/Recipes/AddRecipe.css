@@ -1,17 +1,11 @@
 .addRecipes {
-    margin: 20px;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
+    display:inline-block;
+    justify-content: center;;
+    margin-left: 45%;
 }
 
 h1 {
     text-align: center;
-}
-
-.categoryDiv {
-   display: flexbox;
-   justify-self: center;
 }
 
 

@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const recipes = [req.body.user_id, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
+    const recipes = [req.body.user_id,req.body.category_id, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
     console.log(req.body);
     const queryText = `INSERT INTO "recipes" ("user_id", "category_id", "recipe_name", "ingredients", "instructions") 
                      VALUES ($1, $2, $3, $4, $5);`;
@@ -58,7 +58,8 @@ router.post('api/notes/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     const recipeId = req.params.id;
     // Not sure if this is necessary, but will keep it in for now
-    const recipeEdit = req.params.body;
+    const recipeEdit = [req.body.recipe_name, req.body.ingredients, req.body.instructions];
+    console.log(req.params.id, req.params.body)
     const queryText = `UPDATE "recipes" SET "recipe_name" = $1, "ingredients" = $2, "instructions" = $3 WHERE "id"= $4;`;
     pool.query(queryText, [recipeId, recipeEdit]).then((result) => {
         res.sendStatus(200);

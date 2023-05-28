@@ -48,23 +48,33 @@ function AddRecipe() {
                     {
                         categories.map(category => {
                             return (
-                                <option key={category.id} onChange={(event) => setCategoryId(categories.div)}>{category.description}</option>
+                                <option key={category.id} onChange={(event) => setCategoryId(categories.id)}>{category.description}</option>
                             )
                         })
                     }
                 </select>
+                <br/>
+                <br />
                 Recipe Name:
                 <br />
-                <input type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)} />
+                <textarea type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></textarea>
+                <br />
+                <br />
                 Ingredients:
                 <br />
+                <br/>
                 <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></textarea>
+                <br />
+                <br />
                 Instructions:
+                <br />
                 <br />
                 <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
                 <br />
+                <br />
+                <button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</button>
             </form>
-            <button onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
+            
         </div>
     )
 }

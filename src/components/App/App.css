@@ -134,10 +134,10 @@ h1 {
   position: absolute;
   top: 128px;
   left: 0;
-  background-color: #d7d5d5; /* Black */
+  background-color: #313131; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
-  color: #818181;
+  color: #2c2c2c;
 }
 
 /* The navigation menu links */
@@ -145,7 +145,7 @@ h1 {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 16px;
-  color: #818181;
+  color: #b9b9b9;
   display: block;
   border-bottom: 2px solid #444;
 }
@@ -162,7 +162,7 @@ h1 {
 
 .categoriesHeader {
   text-align: center;
-  background-color: #444;
+  background-color: #313131;
   color:white;
   padding: 20px;
 }
@@ -174,4 +174,8 @@ h1 {
 .addNotes {
   display: flex;
   justify-content: center;
+}
+
+.editRecipes {
+  margin-left: 45%;
 }

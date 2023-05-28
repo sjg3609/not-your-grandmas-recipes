@@ -11,7 +11,7 @@ function EditRecipe() {
     const categories = useSelector(store => store.categoryReducer);
     const history = useHistory();
     const dispatch = useDispatch();
-    const [categoryId, setCategoryId] = useState({ id });
+    // const [categoryId, setCategoryId] = useState({ id });
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [instructions, setInstructions] = useState('');
@@ -26,9 +26,8 @@ function EditRecipe() {
 
 
 
-    const submitRecipe = (event) => {
-        event.preventDefault();
-        dispatch({ type: 'SET_RECIPE' });
+    const submitRecipe = (id) => {
+        dispatch({ type: 'UPDATE_RECIPE', payload:{ recipeId: id, recipe_name: recipeName, ingredients: ingredients, instructions: instructions }});
     }
 
     const goBack = () => {
@@ -37,9 +36,10 @@ function EditRecipe() {
 
     return (
         <div >
-            <h1>Edit Recipe!</h1>
-            <form className="addRecipes">
-                    Category:
+            <h1>Edit {recipe.recipe_name}!</h1>
+            <form className="editRecipes">
+                {/* Going to comment this out because I don't want users to be able to change the categories in here */}
+                    {/* Category:
                     <br />
                     <select onChange={(event) => setCategoryId(event.target.value)}>
                         {
@@ -49,16 +49,23 @@ function EditRecipe() {
                                 )
                             })
                         }
-                    </select>
+                    </select> */}
                     Recipe Name:
                     <br />
-                    <input type="text" placeholder="Recipe Name" onChange={(event) => setRecipeName(event.target.value)} value={recipe.recipe_name} />
+                    <br/>
+                    <textarea type="text" placeholder="Recipe Name" defaultValue={recipe.recipe_name} onChange={(event) => setRecipeName(event.target.value)}></textarea>
+                    <br/>
+                    <br />
                     Ingredients:
                     <br />
-                    <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)} value={recipe.ingredients}></textarea>
+                    <br/>
+                    <textarea type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></textarea>
+                    <br/>
+                    <br />
                     Instructions:
                     <br />
-                    <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)} value={recipe.instructions}></textarea>
+                    <br />
+                    <textarea type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></textarea>
             </form>
             <button onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</button>
             <button onClick={() => submitRecipe()} style={{ float: 'right', margin: '40px' }}>Submit</button>
