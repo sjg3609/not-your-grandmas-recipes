@@ -1,10 +1,10 @@
 import { put, take, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* addNewRecipe() {
+function* addNewRecipe(action) {
     try {
-        const newRecipe = yield axios.post('/api/recipes');
-        yield put({ type: 'SET_RECIPE', payload: newRecipe });
+        yield axios.post('/api/recipes', action.payload);
+        yield put({ type: 'SET_RECIPE' });
     } catch (error) {
         console.log(`Error in addNewRecipe POST recipes ${error}`);
     }
