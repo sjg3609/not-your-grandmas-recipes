@@ -10,20 +10,8 @@ function* addNewRecipe(action) {
     }
 }
 
-function* addNewNote(action) {
-    try {
-        yield axios.post(`/api/recipes`, action.payload);
-        yield put({ type: 'FETCH_RECIPES' });
-        action.setNewNoteToAdd('');
-    } catch (error) {
-        console.log(`Error in addNewNote ${error}`);
-        alert('Something went wrong!');
-    }
-}
-
 function* addNewRecipeSaga() {
     yield takeEvery('SET_NEW_RECIPE', addNewRecipe);
-    yield takeEvery('NEW_NOTE', addNewNote);
 }
 
 export default addNewRecipeSaga;

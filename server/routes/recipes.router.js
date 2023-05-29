@@ -43,17 +43,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('api/notes/:id', (req, res) => {
-    const recipeId = req.params.id;
-    const recipeNote = req.body.notes;
-    const queryText = `INSERT INTO "recipes" ("notes") VALUES ($1);`;
-    pool.query(queryText, [recipeId, recipeNote]).then((result) => {
-        res.sendStatus(201);
-    }).catch((error) => {
-        console.log(`Error in UPDATE notes ${error}`);
-        res.sendStatus(500);
-    });
-});
+
 
 router.put('/:id', (req, res) => {
     const recipeId = req.params.id;
