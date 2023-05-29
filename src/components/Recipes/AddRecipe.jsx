@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import './AddRecipe.css';
 
 
@@ -30,9 +29,16 @@ function AddRecipe() {
     // console.log(`Checking for categories`, categories);
 
 
-    const submitRecipe = (event) => {
+    const setCategory = (option) => {
+        setCategoryId(option.value);
+    }
+
+
+
+    const submitRecipe = () => {
         dispatch({
-            type: 'SET_NEW_RECIPE', payload: {
+            type: 'SET_NEW_RECIPE', 
+            payload: {
                 user_id: user.id,
                 category_id: categoryId,
                 recipe_name: recipeName,
@@ -56,11 +62,11 @@ function AddRecipe() {
                     <form className="addRecipes">
                         Category:
                         <br />
-                        <select>
+                        <select onChange={(setCategory)}>
                             {
                                 categories.map(category => {
                                     return (
-                                        <option key={category.id} onChange={(event) => setCategoryId(categories.id)}>{category.description}</option>
+                                        <option key={category.id} value={category.id}>{category.description}</option>
                                     )
                                 })
                             }
@@ -88,8 +94,6 @@ function AddRecipe() {
                     </form>
                 )
             }
-
-
         </div >
     )
 }
