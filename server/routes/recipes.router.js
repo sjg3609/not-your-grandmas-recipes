@@ -19,8 +19,9 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     let id = req.params.id;
-    const queryText = `SELECT recipes.*, categories.description AS category FROM recipes
+    const queryText = `SELECT recipes.*, categories.description AS category, notes.notes FROM recipes
                        JOIN categories ON recipes.category_id = categories.id
+                       JOIN notes on recipes.id = notes.recipe_id
                        WHERE recipes.id = $1;`;
     pool.query(queryText, [id]).then((result) => {
         res.send(result.rows);

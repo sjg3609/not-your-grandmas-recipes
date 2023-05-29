@@ -23,7 +23,6 @@ function RecipeCard() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
-        fetchNotes();
     }, []);
 
     console.log(note);
