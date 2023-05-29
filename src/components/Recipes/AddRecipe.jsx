@@ -22,16 +22,16 @@ function AddRecipe() {
         fetchCategories();
         console.log(categoryId);
         if (categories.length > 0) {
-            setCategoryId({ id: categories.id })
+            setCategoryId(categories[0].id)
         }
     }, []);
 
     // console.log(`Checking for categories`, categories);
 
 
-    const setCategory = (select) => {
-        setCategoryId(select.value);
-        console.log(select);
+    const setCategory = (event) => {
+        setCategoryId(event.target.value);
+        console.log(event);
     }
 
 
