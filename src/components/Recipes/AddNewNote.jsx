@@ -11,11 +11,17 @@ function AddNewNote() {
     const dispatch = useDispatch();
     const [newNoteToAdd, setNewNoteToAdd] = useState('');
     // const note = useSelector(store => store.noteReducer);
+    const user = useSelector(store => store.user);
+    const recipe = useSelector(store => store.recipeDetails);
 
+    console.log(recipe.id, user.id);
 
     const submitNote = () => {
-        dispatch({ type: 'NEW_NOTE', payload: { notes: newNoteToAdd }});
-        // history.goBack();
+        dispatch({ type: 'NEW_NOTE', payload: { 
+            user_id: user.id,
+            recipe_id: recipe.id,
+            notes: newNoteToAdd }});
+        history.goBack();
     }
 
     // console.log('Checking note', note);

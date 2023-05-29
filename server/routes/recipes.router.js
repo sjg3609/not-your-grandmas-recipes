@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const recipes = [req.body.user_id,req.body.category_id, req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.notes];
+    const recipes = [req.body.user_id,req.body.category_id, req.body.recipe_name, req.body.ingredients, req.body.instructions];
     console.log(req.body);
     const queryText = `INSERT INTO "recipes" ("user_id", "category_id", "recipe_name", "ingredients", "instructions") 
                      VALUES ($1, $2, $3, $4, $5);`;

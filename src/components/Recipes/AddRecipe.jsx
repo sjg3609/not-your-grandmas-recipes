@@ -29,8 +29,9 @@ function AddRecipe() {
     // console.log(`Checking for categories`, categories);
 
 
-    const setCategory = (option) => {
-        setCategoryId(option.value);
+    const setCategory = (select) => {
+        setCategoryId(select.value);
+        console.log(select);
     }
 
 
@@ -80,12 +81,10 @@ function AddRecipe() {
                         <br />
                         Ingredients:
                         <br />
-                        <br />
                         <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></textarea>
                         <br />
                         <br />
                         Instructions:
-                        <br />
                         <br />
                         <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
                         <br />
