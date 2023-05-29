@@ -16,11 +16,12 @@ const router = express.Router();
 //     })
 // })
 
-router.post('/:id', (req, res) => {
-    const recipeId = req.params.id;
+router.post('/', (req, res) => {
+    // const recipeId = req.params.id;
     const recipeNote = req.body.notes;
+    console.log(req.body.notes);
     const queryText = `INSERT INTO "notes" ("notes") VALUES ($1);`;
-    pool.query(queryText, [recipeId, recipeNote]).then((result) => {
+    pool.query(queryText, [recipeNote]).then((result) => {
         res.sendStatus(201);
     }).catch((error) => {
         console.log(`Error in UPDATE notes ${error}`);

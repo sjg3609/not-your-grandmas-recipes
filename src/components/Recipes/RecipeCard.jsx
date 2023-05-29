@@ -9,7 +9,6 @@ function RecipeCard() {
     const history = useHistory();
     const { id } = useParams();
     const recipe = useSelector(store => store.recipeDetails);
-    const note = useSelector(store => store.noteReducer);
 
     console.log('Checking recipe details', recipe);
 
@@ -17,15 +16,9 @@ function RecipeCard() {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
     }
 
-    const fetchNotes = () => {
-        dispatch({ type: 'FETCH_NOTES', payload: id});
-    }
-
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
     }, []);
-
-    console.log(note);
 
     const deleteRecipe = () => {
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
