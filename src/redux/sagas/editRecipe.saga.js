@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* editRecipe(action) {
     try {
-        yield axios.put(`/api/recipes/${action.payload}`);
+        yield axios.put(`/api/recipes`, action.payload);
         yield put({ type: 'SET_RECIPE'});
     } catch (error) {
         console.log(`Error in PUT for editRecipe`, error);

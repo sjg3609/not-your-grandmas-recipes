@@ -16,19 +16,22 @@ function EditRecipe() {
 
 
     useEffect(() => {
-
+        if (recipe.length > 0) {
+            console.log('recipe is present');
+        }
     }, []);
 
 
 
-    const submitRecipe = () => {
+    const submitRecipe = (id) => {
+        console.log(recipeName, ingredients, instructions);
         dispatch({
             type: 'UPDATE_RECIPE',
             payload: {
-                // id: id,
                 recipe_name: recipeName,
                 ingredients: ingredients,
                 instructions: instructions,
+                id: id
             }
         });
     }
@@ -37,22 +40,12 @@ function EditRecipe() {
         history.goBack();
     }
 
+    
+
     return (
         <div >
             <h1>Edit {recipe.recipe_name}!</h1>
             <form className="editRecipes">
-                {/* Going to comment this out because I don't want users to be able to change the categories in here */}
-                {/* Category:
-                    <br />
-                    <select onChange={(event) => setCategoryId(event.target.value)}>
-                        {
-                            categories.map(category => {
-                                return (
-                                    <option key={category.id}>{category.description}</option>
-                                )
-                            })
-                        }
-                    </select> */}
                 Recipe Name:
                 <br />
                 <br />

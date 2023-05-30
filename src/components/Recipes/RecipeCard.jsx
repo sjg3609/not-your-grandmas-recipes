@@ -52,7 +52,6 @@ function RecipeCard() {
 
     const editRecipe = (id) => {
         history.push(`/editRecipe/${id}`);
-        // TODO: Finish this so that the forms prepopulate with the data from the recipe card
     }
 
     const goBack = () => {
