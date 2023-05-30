@@ -4,10 +4,10 @@ const router = express.Router();
 
 router.get('/:id', (req, res) => {
     let id = req.params.id;
-    console.log(req.params.id);
-    const queryText = `SELECT * FROM "notes"
+    console.log('Check ID', req.params.id);
+    const queryText = `SELECT "notes".*, recipes.id AS recipe FROM notes
                        JOIN "recipes" ON "notes"."recipe_id" = "recipes"."id"
-                       WHERE notes.id = $1;`;
+                       WHERE notes.recipe_id =$1;`;
     pool.query(queryText, [id]).then((result) => {
         res.send(result.rows);
     }).catch((error) => {

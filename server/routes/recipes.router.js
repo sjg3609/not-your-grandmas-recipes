@@ -21,7 +21,6 @@ router.get('/:id', (req, res) => {
     let id = req.params.id;
     const queryText = `SELECT recipes.*, categories.description AS category FROM recipes
                        JOIN categories ON recipes.category_id = categories.id
-                       
                        WHERE recipes.id = $1;`;
     pool.query(queryText, [id]).then((result) => {
         res.send(result.rows);
@@ -48,6 +47,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     const recipeId = req.params.id;
+    console.log('Checking ID', recipeId)
     // Not sure if this is necessary, but will keep it in for now
     const recipeEdit = [req.body.recipe_name, req.body.ingredients, req.body.instructions];
     console.log(recipeEdit);
@@ -55,6 +55,7 @@ router.put('/:id', (req, res) => {
     pool.query(queryText, [recipeEdit]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
+        console.log(`Error in PUT ${error}`);
         res.sendStatus(500);
     })
 })
