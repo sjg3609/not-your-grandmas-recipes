@@ -12,6 +12,7 @@ function RecipeCard() {
     const recipeNotes = useSelector(store => store.noteReducer);
 
     console.log('Checking recipe details', recipe);
+    console.log('Checking notes', recipeNotes);
 
     const fetchDetails = () => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
@@ -29,9 +30,9 @@ function RecipeCard() {
         if (recipeNotes.length > 0) {
             console.log('Notes are set')
         }
-    }, []);
+    }, [id]);
 
-    console.log('Checking notes', recipeNotes);
+
 
     const deleteRecipe = () => {
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
@@ -51,7 +52,7 @@ function RecipeCard() {
     }
 
     const deleteNote = (id) => {
-        dispatch({ type: 'DELETE_NOTE', payload: recipe.id})
+        dispatch({ type: 'DELETE_NOTE', payload: recipe.id })
     }
 
     const editRecipe = (id) => {
@@ -79,16 +80,14 @@ function RecipeCard() {
                         <p>{recipe.instructions}</p>
                         <h4>Notes:</h4>
                         <div className="notesDiv">
-                            {/* {
-                                recipeNotes.map(note => {
-                                    return (
-                                        <ul>
-                                            <li key={note.id}>{note.notes}</li>
-                                            <button onClick={() => deleteNote(note.id)}>Delete</button>
-                                        </ul>
-                                    )
-                                })
-                            } */}
+                            {
+                                recipeNotes.map(note =>
+                                    <ul>
+                                        <li key={note.id}>{note.notes}</li>
+                                        <button onClick={() => deleteNote(note.id)}>Delete</button>
+                                    </ul>
+                                )
+                            }
                         </div>
                         <button onClick={() => addNote(recipe.id)}>Add Note</button>
                         {' '}

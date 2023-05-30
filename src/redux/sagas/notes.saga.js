@@ -5,7 +5,7 @@ function* getNotes(action) {
     try {
         const notes = yield axios.get(`/api/notes/${action.payload}`);
         if (notes.data.length > 0) {
-            yield put({ type: 'NOTE_DETAILS', payload: notes.data[0] });
+            yield put({ type: 'NOTE_DETAILS', payload: notes.data });
         }
     } catch (error) {
         console.log(`Error in getNotes ${error}`);

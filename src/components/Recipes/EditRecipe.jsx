@@ -33,7 +33,7 @@ function EditRecipe() {
                 id: id
             }
         });
-        // history.goBack();
+        history.goBack();
     }
 
     const goBack = () => {
@@ -65,6 +65,7 @@ function EditRecipe() {
             </form>
             <br />
             <button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</button>
+            {'  '}
             <button onClick={() => submitRecipe(id)} style={{ float: 'right', marginRight: '45%' }}>Submit</button>
         </div>
     )
