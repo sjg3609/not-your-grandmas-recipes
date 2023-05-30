@@ -34,6 +34,7 @@ function RecipeCard() {
     console.log('Checking notes', notes);
 
     const deleteRecipe = () => {
+        deleteNote();
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
             console.log(response);
             fetchDetails()
@@ -47,6 +48,10 @@ function RecipeCard() {
 
     const addNote = (id) => {
         history.push(`/addNote/${id}`);
+    }
+
+    const deleteNote = (id) => {
+        dispatch({ type: 'DELETE_NOTE', payload: id})
     }
 
     const editRecipe = (id) => {
@@ -79,13 +84,12 @@ function RecipeCard() {
                                     return (
                                         <ul>
                                             <li key={note.id}>{note.notes}</li>
-                                            <button onClick>Delete</button>
+                                            <button onClick={() => deleteNote(note.id)}>Delete</button>
                                         </ul>
                                     )
                                 })
                             } */}
                         </div>
-
                         <button onClick={() => addNote(recipe.id)}>Add Note</button>
                         <button onClick={() => editRecipe(recipe.id)}>Edit Recipe</button>
                         <button onClick={deleteRecipe}>Delete Recipe</button>

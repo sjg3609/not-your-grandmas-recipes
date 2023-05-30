@@ -21,9 +21,19 @@ function* addNewNote(action) {
     }
 }
 
+function* deleteNote(action) {
+    try {
+        yield axios.delete(`/api/notes/${action.payload}`)
+    } catch (error) {
+        console.log(`Error in deleteNote ${error}`);
+        alert('Something went wrong!');
+    }
+}
+
 function* notesSaga() {
     yield takeEvery( 'FETCH_NOTES', getNotes);
     yield takeEvery('NEW_NOTE', addNewNote);
+    yield takeEvery('DELETE_NOTE', deleteNote);
 }
 
 export default notesSaga;
