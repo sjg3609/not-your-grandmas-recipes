@@ -28,7 +28,7 @@ function RecipesPage() {
 
     useEffect(() => {
         fetchCategories();
-        getRecipes();
+        // getRecipes();
     }, []);
 
     const recipeDetails = (id) => {

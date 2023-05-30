@@ -30,9 +30,11 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    const deleteId = req.body.recipe_id;
+    const deleteId = req.params.id;
+    const deleteNote = req.body.recipe.id;
+    console.log('Checking req.body and req.params', deleteId, deleteNote);
     let queryText = `DELETE FROM "notes" WHERE "recipe_id"= $1;`;
-    pool.query(queryText, deleteId).then((result) => {
+    pool.query(queryText, [deleteId, deleteNote]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.log(`Error in DELETE ${error}`);

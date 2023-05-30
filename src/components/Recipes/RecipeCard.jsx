@@ -9,7 +9,7 @@ function RecipeCard() {
     const history = useHistory();
     const { id } = useParams();
     const recipe = useSelector(store => store.recipeDetails);
-    const notes = useSelector(store => store.noteReducer);
+    const recipeNotes = useSelector(store => store.noteReducer);
 
     console.log('Checking recipe details', recipe);
 
@@ -25,16 +25,15 @@ function RecipeCard() {
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
         fetchNotes();
-        console.log(notes);
-        if (notes.length > 0) {
+        console.log(recipeNotes);
+        if (recipeNotes.length > 0) {
             console.log('Notes are set')
         }
     }, []);
 
-    console.log('Checking notes', notes);
+    console.log('Checking notes', recipeNotes);
 
     const deleteRecipe = () => {
-        deleteNote();
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
             console.log(response);
             fetchDetails()
@@ -42,7 +41,8 @@ function RecipeCard() {
         }).catch((error) => {
             console.log(`Error in DELETE ${error}`);
             alert('Something went wrong!');
-        })
+        });
+        // deleteNote();
     }
 
 
@@ -51,7 +51,7 @@ function RecipeCard() {
     }
 
     const deleteNote = (id) => {
-        dispatch({ type: 'DELETE_NOTE', payload: id})
+        dispatch({ type: 'DELETE_NOTE', payload: recipe.id})
     }
 
     const editRecipe = (id) => {
@@ -67,7 +67,7 @@ function RecipeCard() {
             <h1>{recipe.recipe_name}</h1>
             <button onClick={goBack}>Go Back</button>
             {
-                notes.length === 0 ? (
+                recipe.length === 0 ? (
                     <div>
                         <h1>Loading...</h1>
                     </div>
@@ -80,7 +80,7 @@ function RecipeCard() {
                         <h4>Notes:</h4>
                         <div className="notesDiv">
                             {/* {
-                                notes.map(note => {
+                                recipeNotes.map(note => {
                                     return (
                                         <ul>
                                             <li key={note.id}>{note.notes}</li>
@@ -91,12 +91,13 @@ function RecipeCard() {
                             } */}
                         </div>
                         <button onClick={() => addNote(recipe.id)}>Add Note</button>
+                        {' '}
                         <button onClick={() => editRecipe(recipe.id)}>Edit Recipe</button>
+                        {' '}
                         <button onClick={deleteRecipe}>Delete Recipe</button>
                     </div>
                 )
             }
-
         </div>
     )
 }

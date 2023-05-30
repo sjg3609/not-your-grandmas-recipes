@@ -52,6 +52,7 @@ router.put('/', (req, res) => {
     console.log('Checking req.body', req.body);
     const queryText = `UPDATE "recipes" SET "recipe_name" = $1, "ingredients" = $2, "instructions" = $3 WHERE "id"= $4;`;
     pool.query(queryText, recipeEdit).then((result) => {
+        console.log('Success!');
         res.sendStatus(200);
     }).catch((error) => {
         console.log(`Error in PUT for editRecipe ${error}`)
