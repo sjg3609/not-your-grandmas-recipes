@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import RecipeCard from './RecipeCard';
 
 
 function RecipesPage() {
@@ -12,7 +11,6 @@ function RecipesPage() {
     const recipes = useSelector(store => store.recipesReducer);
     const categories = useSelector(store => store.categoryReducer);
     const [recipeCategory, setRecipeCategory] = useState();
-    const { id } = useParams();
 
     console.log('Checking for recipes', recipes);
     console.log('Check categories', categories);

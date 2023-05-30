@@ -52,7 +52,7 @@ function RecipeCard() {
     }
 
     const deleteNote = (id) => {
-        dispatch({ type: 'DELETE_NOTE', payload: recipe.id })
+        dispatch({ type: 'DELETE_NOTE', payload: recipeNotes.id })
     }
 
     const editRecipe = (id) => {
@@ -82,9 +82,9 @@ function RecipeCard() {
                         <div className="notesDiv">
                             {
                                 recipeNotes.map(note =>
-                                    <ul>
-                                        <li key={note.id}>{note.notes}</li>
-                                        <button onClick={() => deleteNote(note.id)}>Delete</button>
+                                    <ul style={{listStyleType: 'none'}}>
+                                        <li key={note.id}>{note.notes}</li>{' '}<button onClick={() => deleteNote(note.id)}>Delete</button>
+                                        
                                     </ul>
                                 )
                             }
