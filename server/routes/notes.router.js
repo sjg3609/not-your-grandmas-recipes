@@ -4,10 +4,10 @@ const router = express.Router();
 
 router.get('/:id', (req, res) => {
     let id = req.params.id;
-    console.log('Check ID', req.params.id);
-    const queryText = `SELECT "notes".*, recipes.id AS recipe FROM notes
+    console.log('Check ID for notes', req.params.id);
+    const queryText = `SELECT "notes".* FROM "notes"
                        JOIN "recipes" ON "notes"."recipe_id" = "recipes"."id"
-                       WHERE notes.recipe_id =$1;`;
+                       WHERE "notes"."recipe_id" = $1;`;
     pool.query(queryText, [id]).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     // const recipeId = req.params.id;
     const recipeNote = req.body.notes;
     console.log(req.body.notes);
-    const queryText = `INSERT INTO "notes" ("notes") VALUES ($1);`;
+    const queryText = `INSERT INTO "notes" ("user_id", "recipe_id", "notes") VALUES ($1, $2, $3);`;
     pool.query(queryText, [recipeNote]).then((result) => {
         res.sendStatus(201);
     }).catch((error) => {

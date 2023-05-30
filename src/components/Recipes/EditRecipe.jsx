@@ -34,6 +34,7 @@ function EditRecipe() {
                 id: id
             }
         });
+        // history.goBack();
     }
 
     const goBack = () => {

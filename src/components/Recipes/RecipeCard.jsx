@@ -31,7 +31,7 @@ function RecipeCard() {
         }
     }, []);
 
-    console.log(notes);
+    console.log('Checking notes', notes);
 
     const deleteRecipe = () => {
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
