@@ -18,10 +18,10 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     // const recipeId = req.params.id;
-    const recipeNote = req.body.notes;
-    console.log(req.body.notes);
+    const recipeNote = [req.body.user_id, req.body.recipe_id, req.body.notes];
+    console.log(req.body);
     const queryText = `INSERT INTO "notes" ("user_id", "recipe_id", "notes") VALUES ($1, $2, $3);`;
-    pool.query(queryText, [recipeNote]).then((result) => {
+    pool.query(queryText, recipeNote).then((result) => {
         res.sendStatus(201);
     }).catch((error) => {
         console.log(`Error in UPDATE notes ${error}`);
