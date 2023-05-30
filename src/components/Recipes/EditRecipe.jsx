@@ -22,7 +22,6 @@ function EditRecipe() {
     }, []);
 
 
-
     const submitRecipe = (id) => {
         console.log(recipeName, ingredients, instructions);
         dispatch({

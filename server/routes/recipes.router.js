@@ -46,9 +46,9 @@ router.post('/', (req, res) => {
 
 
 router.put('/', (req, res) => {
-    const recipeId = req.params.id;
+
     // Not sure if this is necessary, but will keep it in for now
-    const recipeEdit = [req.body.recipe_name, req.body.ingredients, req.body.instructions, recipeId];
+    const recipeEdit = [req.body.recipe_name, req.body.ingredients, req.body.instructions, req.body.id];
     console.log('Checking req.body', req.body);
     const queryText = `UPDATE "recipes" SET "recipe_name" = $1, "ingredients" = $2, "instructions" = $3 WHERE "id"= $4;`;
     pool.query(queryText, recipeEdit).then((result) => {
