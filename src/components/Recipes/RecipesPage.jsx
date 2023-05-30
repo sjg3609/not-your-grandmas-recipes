@@ -45,7 +45,7 @@ function RecipesPage() {
                     categories.map(category => {
                         return (
                             <ul className="categories">
-                                <l1 onClick={() => getRecipes(category.id)}>{category.description}</l1>
+                                <l1 key={category.id} onClick={() => getRecipes(category.id)}>{category.description}</l1>
                             </ul>
                         )
                     })

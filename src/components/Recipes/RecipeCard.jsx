@@ -20,7 +20,7 @@ function RecipeCard() {
     const fetchNotes = () => {
         dispatch({ type: 'FETCH_NOTES', payload: id });
     }
-        
+
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
@@ -47,7 +47,6 @@ function RecipeCard() {
 
     const addNote = (id) => {
         history.push(`/addNote/${id}`);
-        // TODO: Finish this so that the notes push to /recipes
     }
 
     const editRecipe = (id) => {
@@ -60,7 +59,7 @@ function RecipeCard() {
 
     return (
         <div className="recipeCard">
-            <h1>Recipe Card {id}</h1>
+            <h1>{recipe.recipe_name}</h1>
             <button onClick={goBack}>Go Back</button>
             {
                 notes.length === 0 ? (
@@ -68,24 +67,25 @@ function RecipeCard() {
                         <h1>Loading...</h1>
                     </div>
                 ) : (
-
                     <div key={recipe.id}>
-                        <h3>{recipe.recipe_name}</h3>
                         <h4>Ingredients</h4>
                         <p>{recipe.ingredients}</p>
                         <h4>Instructions</h4>
                         <p>{recipe.instructions}</p>
                         <h4>Notes:</h4>
-                        {/* {
-                            notes.map(note => {
-                                return (
-                                    <ul>
-                                        <li key={note.id}>{note.notes}</li>
-                                        <button onClick={deleteNote}>Delete</button>
-                                    </ul>
-                                )
-                            })
-                        } */}
+                        <div className="notesDiv">
+                            {/* {
+                                notes.map(note => {
+                                    return (
+                                        <ul>
+                                            <li key={note.id}>{note.notes}</li>
+                                            <button onClick>Delete</button>
+                                        </ul>
+                                    )
+                                })
+                            } */}
+                        </div>
+
                         <button onClick={() => addNote(recipe.id)}>Add Note</button>
                         <button onClick={() => editRecipe(recipe.id)}>Edit Recipe</button>
                         <button onClick={deleteRecipe}>Delete Recipe</button>

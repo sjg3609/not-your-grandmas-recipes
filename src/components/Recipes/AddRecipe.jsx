@@ -28,15 +28,11 @@ function AddRecipe() {
         }
     }, []);
 
-    // console.log(`Checking for categories`, categories);
-
 
     const setCategory = (event) => {
         setCategoryId(event.target.value);
         console.log(event);
     }
-
-
 
     const submitRecipe = () => {
         dispatch({
