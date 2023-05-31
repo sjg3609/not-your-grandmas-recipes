@@ -1,7 +1,7 @@
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import axios from 'axios';
+import { TextArea, TextField, Button } from '@mui/material';
 
 
 function AddNewNote() {

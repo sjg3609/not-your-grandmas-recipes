@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -53,7 +53,6 @@ function RecipesPage() {
         <main>
             <Container fixed>
                 <h1>Recipes</h1>
-
                 <div className="recipePage">
                     <nav className="categoryNav" style={{ textalign: 'center', }}>
                         <h4 className="categoriesHeader" style={{ padding: '25px', top: '10px' }}>Categories</h4>

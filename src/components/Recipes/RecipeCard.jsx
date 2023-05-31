@@ -63,6 +63,7 @@ function RecipeCard() {
 
     const goBack = () => {
         history.goBack();
+        dispatch({ type: 'FETCH_RECIPES', payload: id });
     }
 
     const Item = styled(Paper)(({ theme }) => ({
