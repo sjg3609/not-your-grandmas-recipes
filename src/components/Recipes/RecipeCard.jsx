@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { Paper, Button } from '@mui/material';
+import { experimentalStyled as styled } from '@mui/material/styles';
 import axios from 'axios';
 
 function RecipeCard() {
@@ -63,9 +65,22 @@ function RecipeCard() {
         history.goBack();
     }
 
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === '#423E3D',
+        ...theme.typography.body2,
+        padding: theme.spacing(3),
+        margin: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        width: 800,
+        maxWidth: 'auto',
+        maxHeight: 'auto',
+    }));
+
     return (
         <div className="recipeCard">
-            <h1>{recipe.recipe_name}</h1>
+            <Item>
+                <h1>{recipe.recipe_name}</h1>
             <button onClick={goBack}>Go Back</button>
             {
                 recipe.length === 0 ? (
@@ -82,9 +97,11 @@ function RecipeCard() {
                         <div className="notesDiv">
                             {
                                 recipeNotes.map(note =>
-                                    <ul style={{listStyleType: 'none'}}>
-                                        <li key={note.id}>{note.notes}</li>{' '}<button onClick={() => deleteNote(note.id)}>Delete</button>
-                                        
+                                    <ul style={{listStyleType: 'none', margin: '10', padding: '10' }}>
+                                        <li key={note.id}>{note.notes}</li>
+                                        <br/>
+                                        <br />
+                                        <button onClick={() => deleteNote(note.id)}>Delete</button>
                                     </ul>
                                 )
                             }
@@ -97,6 +114,8 @@ function RecipeCard() {
                     </div>
                 )
             }
+            </Item>
+            
         </div>
     )
 }

@@ -55,7 +55,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #369fc2;
+  background-color: #40c5f1;
   text-decoration: none;
 }
 
@@ -132,7 +132,7 @@ h1 {
   height: 100em; /* Full-height: remove this if you want "auto" height */
   width: 180px; /* Set the width of the sidebar */
   position: absolute;
-  top: 128px;
+  top: 132px;
   left: 0;
   background-color: #313131; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -169,6 +169,8 @@ h1 {
 
 .recipeCard {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .addNotes {
@@ -178,4 +180,9 @@ h1 {
 
 .editRecipes {
   margin-left: 45%;
+}
+
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
 }

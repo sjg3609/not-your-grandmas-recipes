@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { Container, Grid, Paper, Button } from '@mui/material';
+import { experimentalStyled as styled } from '@mui/material/styles';
 
 
 function RecipesPage() {
@@ -10,7 +12,7 @@ function RecipesPage() {
     const history = useHistory();
     const recipes = useSelector(store => store.recipesReducer);
     const categories = useSelector(store => store.categoryReducer);
-    const [recipeCategory, setRecipeCategory] = useState();
+    // const [recipeCategory, setRecipeCategory] = useState();
 
     console.log('Checking for recipes', recipes);
     console.log('Check categories', categories);
@@ -34,33 +36,65 @@ function RecipesPage() {
         history.push(`/recipeCard/${id}`)
     }
 
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === '#423E3D',
+        ...theme.typography.body2,
+        padding: theme.spacing(3),
+        margin: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        width: 200,
+        maxWidth: 'auto',
+        maxHeight: 'auto',
+        wordWrap: 'break-word',
+    }));
+
     return (
-        <div className="recipePage">
-            <h1>Recipes</h1>
-            <nav className="categoryNav" style={{ textalign: 'center', }}>
-                <h4 className="categoriesHeader" style={{ padding: '25px', top: '10px' }}>Categories</h4>
-                {
-                    categories.map(category => {
-                        return (
-                            <ul className="categories">
-                                <l1 key={category.id} onClick={() => getRecipes(category.id)}>{category.description}</l1>
-                            </ul>
-                        )
-                    })
-                }
-            </nav>
-            <div className="recipes">
-                {
-                    recipes.map(recipe => {
-                        return (
-                            <div key={recipe.id}>
-                                <h4 onClick={() => recipeDetails(recipe.id)}>{recipe.recipe_name}</h4>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </div>
+        <main>
+            <Container fixed>
+                <h1>Recipes</h1>
+
+                <div className="recipePage">
+                    <nav className="categoryNav" style={{ textalign: 'center', }}>
+                        <h4 className="categoriesHeader" style={{ padding: '25px', top: '10px' }}>Categories</h4>
+                        {
+                            categories.map(category => {
+                                return (
+                                    <ul className="categories">
+                                        <l1 key={category.id} onClick={() => getRecipes(category.id)}>{category.description}</l1>
+                                    </ul>
+                                )
+                            })
+                        }
+                    </nav>
+                    <div className="recipes">
+                        <Grid container
+                            columnSpacing={4}
+                            rowSpacing={6}
+                            direction="row"
+                            justifyContent="space-evenly"
+                            alignItems="center"
+                            padding={8}
+                            wordWrap= 'break-word'
+                        >
+                            {
+                                recipes.map(recipe => {
+                                    return (
+                                        <div key={recipe.id}>
+                                            <Item>
+                                                <h3 onClick={() => recipeDetails(recipe.id)}>{recipe.recipe_name}</h3>
+                                            </Item>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </Grid>
+                    </div>
+                </div>
+            </Container>
+
+        </main >
+
     )
 }
 
