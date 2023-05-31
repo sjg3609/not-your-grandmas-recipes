@@ -83,39 +83,38 @@ function RecipeCard() {
         <div className="recipeCard">
             <Item>
                 <h1>{recipe.recipe_name}</h1>
-            <Button onClick={goBack}>Go Back</Button>
-            {
-                recipe.length === 0 ? (
-                    <div>
-                        <h1>Loading...</h1>
-                    </div>
-                ) : (
-                    <div key={recipe.id}>
-                        <h4>Ingredients</h4>
-                        <p>{recipe.ingredients}</p>
-                        <h4>Instructions</h4>
-                        <p>{recipe.instructions}</p>
-                        <h4>Notes:</h4>
-                        <div className="notesDiv">
-                            {
-                                recipeNotes.map(note =>
-                                    <ul style={{listStyleType: 'none', margin: '10', padding: '10' }}>
-                                        <li key={note.id}>{note.notes}</li>
-                                        <Button sixe="small" onClick={() => deleteNote(note.id)}>Delete</Button>
-                                    </ul>
-                                )
-                            }
+                <Button variant="contained" size="small" onClick={goBack}>Go Back</Button>
+                {
+                    recipe.length === 0 ? (
+                        <div>
+                            <h1>Loading...</h1>
                         </div>
-                        <Button onClick={() => addNote(recipe.id)}>Add Note</Button>
-                        {' '}
-                        <Button onClick={() => editRecipe(recipe.id)}>Edit Recipe</Button>
-                        {' '}
-                        <Button onClick={deleteRecipe}>Delete Recipe</Button>
-                    </div>
-                )
-            }
+                    ) : (
+                        <div key={recipe.id}>
+                            <h4>Ingredients</h4>
+                            <p>{recipe.ingredients}</p>
+                            <h4>Instructions</h4>
+                            <p>{recipe.instructions}</p>
+                            <h4>Notes:</h4>
+                            <div className="notesDiv">
+                                {
+                                    recipeNotes.map(note =>
+                                        <div key={note.id}>{note.notes}</div>
+                                        //  <Button  variant="contained" size="small" onClick={() => deleteNote(note.id)}>Delete</Button>
+                                    )
+                                }
+                            </div>
+                            <br />
+                            <Button variant="contained" size="small" onClick={() => addNote(recipe.id)}>Add Note</Button>
+                            {' '}
+                            <Button variant="contained" size="small" onClick={() => editRecipe(recipe.id)}>Edit Recipe</Button>
+                            {' '}
+                            <Button variant="contained" size="small" onClick={deleteRecipe}>Delete Recipe</Button>
+                        </div>
+                    )
+                }
             </Item>
-            
+
         </div>
     )
 }

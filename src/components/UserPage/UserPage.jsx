@@ -8,6 +8,7 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
+      <img src="98724.gif"></img>
     </div>
   );
 }
