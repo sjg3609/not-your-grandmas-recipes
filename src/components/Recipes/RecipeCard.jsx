@@ -12,6 +12,7 @@ function RecipeCard() {
     const { id } = useParams();
     const recipe = useSelector(store => store.recipeDetails);
     const recipeNotes = useSelector(store => store.noteReducer);
+    const user = useSelector(store => store.user);
 
     console.log('Checking recipe details', recipe);
     console.log('Checking notes', recipeNotes);
@@ -99,7 +100,9 @@ function RecipeCard() {
                             <div className="notesDiv">
                                 {
                                     recipeNotes.map(note =>
-                                        <div key={note.id}>{note.notes}</div>
+                                        <div key={note.id}>
+                                            <p>{note.notes}</p>
+                                        </div>
                                         //  <Button  variant="contained" size="small" onClick={() => deleteNote(note.id)}>Delete</Button>
                                     )
                                 }

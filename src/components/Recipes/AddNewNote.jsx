@@ -1,7 +1,7 @@
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { TextArea, TextField, Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 
 
 function AddNewNote() {
@@ -33,14 +33,14 @@ function AddNewNote() {
 
     return (
         <div>
-            <h3 style={{ textAlign: 'center' }}>Add Note:</h3>
+            <h2 style={{ textAlign: 'center' }}>Add Note:</h2>
             <form>
                 <div className="addNotes">
-                    <input type="text" value={newNoteToAdd} onChange={(event) => setNewNoteToAdd(event.target.value)} placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }} />
+                    <TextField type="text" value={newNoteToAdd} onChange={(event) => setNewNoteToAdd(event.target.value)} placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }}/>
                 </div>
             </form >
-            <button onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</button>
-            <button onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</button>
+            <Button variant="contained" onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</Button>
+            <Button variant="contained" onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</Button>
         </div >
     )
 }
