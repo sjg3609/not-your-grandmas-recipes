@@ -76,6 +76,7 @@ function RecipeCard() {
         width: 800,
         maxWidth: 'auto',
         maxHeight: 'auto',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     }));
 
     return (
@@ -100,9 +101,7 @@ function RecipeCard() {
                                 recipeNotes.map(note =>
                                     <ul style={{listStyleType: 'none', margin: '10', padding: '10' }}>
                                         <li key={note.id}>{note.notes}</li>
-                                        <br/>
-                                        <br />
-                                        <button onClick={() => deleteNote(note.id)}>Delete</button>
+                                        <Button sixe="small" onClick={() => deleteNote(note.id)}>Delete</Button>
                                     </ul>
                                 )
                             }
