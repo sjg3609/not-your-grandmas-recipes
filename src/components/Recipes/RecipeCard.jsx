@@ -82,7 +82,7 @@ function RecipeCard() {
         <div className="recipeCard">
             <Item>
                 <h1>{recipe.recipe_name}</h1>
-            <button onClick={goBack}>Go Back</button>
+            <Button onClick={goBack}>Go Back</Button>
             {
                 recipe.length === 0 ? (
                     <div>
@@ -107,11 +107,11 @@ function RecipeCard() {
                                 )
                             }
                         </div>
-                        <button onClick={() => addNote(recipe.id)}>Add Note</button>
+                        <Button onClick={() => addNote(recipe.id)}>Add Note</Button>
                         {' '}
-                        <button onClick={() => editRecipe(recipe.id)}>Edit Recipe</button>
+                        <Button onClick={() => editRecipe(recipe.id)}>Edit Recipe</Button>
                         {' '}
-                        <button onClick={deleteRecipe}>Delete Recipe</button>
+                        <Button onClick={deleteRecipe}>Delete Recipe</Button>
                     </div>
                 )
             }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './AddRecipe.css';
-import { TextField, TextArea, Button } from '@mui/material';
+import { TextField, Button, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 
 
 function AddRecipe() {
@@ -52,7 +52,7 @@ function AddRecipe() {
     console.log(`Checking categoryId`, categoryId);
 
     return (
-        <div>
+        <div className="addRecipes">
             <h1>Add Recipe!</h1>
             {
                 categories.length === 0 ? (
@@ -60,37 +60,31 @@ function AddRecipe() {
                         <h1>Loading...</h1>
                     </div>
                 ) : (
-                    <form className="addRecipes">
-                        Category:
-                        <br />
-                        <select onChange={(setCategory)}>
+                    <FormControl  fullWidth>
+                        <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
+                        <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" style={{width: '210px'}}>
+                            
                             {
                                 categories.map(category => {
                                     return (
-                                        <option key={category.id} value={category.id}>{category.description}</option>
+                                        <MenuItem style={{width: 'auto'}}key={category.id} value={category.id}>{category.description}</MenuItem>
                                     )
                                 })
                             }
-                        </select>
+                        </Select>
                         <br />
                         <br />
-                        Recipe Name:
-                        <br />
-                        <textarea type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></textarea>
+                        <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
                         <br />
                         <br />
-                        Ingredients:
-                        <br />
-                        <textarea type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></textarea>
+                        <TextField type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
                         <br />
                         <br />
-                        Instructions:
-                        <br />
-                        <textarea type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
+                        <TextField type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
                         <br />
                         <br />
-                        <button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</button>
-                    </form>
+                        <Button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>
+                    </FormControl>
                 )
             }
         </div >

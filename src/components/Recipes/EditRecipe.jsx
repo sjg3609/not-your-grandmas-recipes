@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './AddRecipe.css';
-import { TextField, TextArea, Button } from '@mui/material';
+import { TextField, Button, InputLabel } from '@mui/material';
 
 
 function EditRecipe() {
@@ -45,29 +45,29 @@ function EditRecipe() {
 
     return (
         <div >
-            <h1>Edit {recipe.recipe_name}!</h1>
+            <h1>Editing {recipe.recipe_name}</h1>
             <form className="editRecipes">
                 Recipe Name:
                 <br />
                 <br />
-                <textarea type="text" placeholder="Recipe Name" defaultValue={recipe.recipe_name} onChange={(event) => setRecipeName(event.target.value)}></textarea>
+                <TextField type="text" placeholder="Recipe Name" defaultValue={recipe.recipe_name} onChange={(event) => setRecipeName(event.target.value)}></TextField>
                 <br />
                 <br />
                 Ingredients:
                 <br />
                 <br />
-                <textarea type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></textarea>
+                <TextField type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
                 <br />
                 <br />
                 Instructions:
                 <br />
                 <br />
-                <textarea type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></textarea>
+                <TextField type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
             </form>
             <br />
-            <button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</button>
+            <Button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</Button>
             {'  '}
-            <button onClick={() => submitRecipe(id)} style={{ float: 'right', marginRight: '45%' }}>Submit</button>
+            <Button onClick={() => submitRecipe(id)} style={{ float: 'right', marginRight: '45%' }}>Submit</Button>
         </div>
     )
 }
