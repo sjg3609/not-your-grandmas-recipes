@@ -9,7 +9,15 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h2>About Not Your Grandma's Recipes</h2>
+        <p>This project was created by Sam Gossie for Prime Digital Academy</p>
+        <p>Some of the technologies used in this project are React.js,
+						Redux, Node.js, Express, Material UI, and PostgresSQL.
+            
+            For more information about this project, and others that I have worked on, it is available on</p> 
+            <a href="https://github.com/sjg3609/not-your-grandmas-recipes">Github</a>
+            
+            <p>A huge thank you to our instructor for the Tanzanite cohort, Chris Black! As well as Marc McCarthy for all the help along the way!</p>
       </div>
     </div>
   );

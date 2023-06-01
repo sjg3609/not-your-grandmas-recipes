@@ -17,10 +17,13 @@ function AddNewNote() {
     console.log(recipe.id, user.id);
 
     const submitNote = () => {
-        dispatch({ type: 'NEW_NOTE', payload: { 
-            user_id: user.id,
-            recipe_id: recipe.id,
-            notes: newNoteToAdd }});
+        dispatch({
+            type: 'NEW_NOTE', payload: {
+                user_id: user.id,
+                recipe_id: recipe.id,
+                notes: newNoteToAdd
+            }
+        });
         history.goBack();
     }
 
@@ -32,15 +35,16 @@ function AddNewNote() {
     }
 
     return (
-        <div>
+        <div className="noteDiv">
             <h2 style={{ textAlign: 'center' }}>Add Note:</h2>
             <form>
                 <div className="addNotes">
-                    <TextField type="text" value={newNoteToAdd} onChange={(event) => setNewNoteToAdd(event.target.value)} placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }}/>
+                    <TextField type="text" value={newNoteToAdd} onChange={(event) => setNewNoteToAdd(event.target.value)} placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }} />
                 </div>
             </form >
             <Button variant="contained" onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</Button>
             <Button variant="contained" onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</Button>
+
         </div >
     )
 }

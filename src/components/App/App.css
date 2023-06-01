@@ -21,7 +21,7 @@ Container
 .container {
   padding: 20px;
   text-align: center;
-  display: flex;
+  display: block;
   justify-content: center;
 }
 
@@ -190,6 +190,11 @@ h1 {
   flex-wrap: wrap;
 }
 
-textarea {
-  font-family: arial,
+/* .imageDiv {
+  display: flex;
+  justify-content: baseline;
+} */
+
+img {
+  display:inline-block;
 }
