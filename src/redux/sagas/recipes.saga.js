@@ -14,6 +14,7 @@ function* recipeDetails(action) {
     try {
         const recipe = yield axios.get(`/api/recipes/${action.payload}`)
         if (recipe.data.length > 0) {
+            console.log('Checking details', recipe.data[0])
             yield put({ type: 'SET_DETAILS', payload: recipe.data[0] });
         }
     } catch (error) {

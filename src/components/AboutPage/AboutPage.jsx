@@ -18,6 +18,7 @@ function AboutPage() {
             <a href="https://github.com/sjg3609/not-your-grandmas-recipes">Github</a>
             
             <p>A huge thank you to our instructor for the Tanzanite cohort, Chris Black! As well as Marc McCarthy for all the help along the way!</p>
+            <p>As well as all the rest of my cohort mates, it's been a wild ride! Thank you for all the help too!</p>
       </div>
     </div>
   );

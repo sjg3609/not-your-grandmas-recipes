@@ -9,6 +9,7 @@ router.get('/:id', (req, res) => {
                        JOIN "recipes" ON "notes"."recipe_id" = "recipes"."id"
                        WHERE "notes"."recipe_id" = $1;`;
     pool.query(queryText, [id]).then((result) => {
+        console.log(result.rows);
         res.send(result.rows);
     }).catch((error) => {
         console.log(`Error in completeing SELECT notes ${error}`);

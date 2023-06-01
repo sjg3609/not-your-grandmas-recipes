@@ -14,21 +14,24 @@ function RecipeCard() {
     const recipeNotes = useSelector(store => store.noteReducer);
     const user = useSelector(store => store.user);
 
-    console.log('Checking recipe details', recipe);
-    console.log('Checking notes', recipeNotes);
+    // console.log('Checking recipe details', recipe);
+    // console.log('Checking notes', recipeNotes);
 
     const fetchDetails = () => {
+        console.log(id)
         dispatch({ type: 'FETCH_DETAILS', payload: id });
     }
 
     const fetchNotes = () => {
+        console.log(id)
         dispatch({ type: 'FETCH_NOTES', payload: id });
     }
 
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
-        fetchNotes();
+        dispatch({ type: 'FETCH_NOTES', payload: id });
+        // fetchNotes();
         console.log(recipeNotes);
         if (recipeNotes.length > 0) {
             console.log('Notes are set')
@@ -40,7 +43,6 @@ function RecipeCard() {
     const deleteRecipe = () => {
         axios.delete(`/api/recipes/${recipe.id}`).then((response) => {
             console.log(response);
-            fetchDetails()
             history.goBack();
         }).catch((error) => {
             console.log(`Error in DELETE ${error}`);
