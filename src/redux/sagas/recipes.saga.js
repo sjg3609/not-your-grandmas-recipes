@@ -1,14 +1,14 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* getRecipes(action) {
-    try {
-        const recipes = yield axios.get('/api/recipes');
-        yield put({ type: 'SET_RECIPES', payload: recipes.data });
-    } catch (error) {
-        console.log(`Get all error ${error}`);
-    }
-}
+// function* getRecipes(action) {
+//     try {
+//         const recipes = yield axios.get('/api/recipes');
+//         yield put({ type: 'SET_RECIPES', payload: recipes.data });
+//     } catch (error) {
+//         console.log(`Get all error ${error}`);
+//     }
+// }
 
 function* recipeDetails(action) {
     try {
@@ -23,7 +23,7 @@ function* recipeDetails(action) {
 }
 
 function* recipeSaga() {
-    yield takeEvery('FETCH_RECIPES', getRecipes);
+    // yield takeEvery('FETCH_RECIPES', getRecipes);
     yield takeEvery('FETCH_DETAILS', recipeDetails);
 }
 

@@ -13,10 +13,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+    let id = req.params.id;
     const queryText = `SELECT * FROM categories
     JOIN recipes ON recipes.category_id = categories.id
     WHERE categories.id = $1;`;
-    pool.query(queryText).then(result => {
+    pool.query(queryText, [id]).then(result => {
         res.send(result.rows);
     }).catch(error => {
         console.log(`Error in GET recipes by category ${error}`);
