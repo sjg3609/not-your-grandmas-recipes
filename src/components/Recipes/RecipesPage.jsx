@@ -23,7 +23,7 @@ function RecipesPage() {
 
     const getRecipes = (id) => {
         console.log('In getRecipes for categories')
-        dispatch({ type: 'FETCH_RECIPES', payload: id });
+        dispatch({ type: 'FETCH_RECIPES_BY_CAT', payload: id });
     }
 
     useEffect(() => {
