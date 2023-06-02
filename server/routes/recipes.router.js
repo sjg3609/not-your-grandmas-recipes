@@ -15,6 +15,21 @@ router.get('/', (req, res) => {
     })
 });
 
+// GET route for pulling recipes specifically by category.id
+
+// router.get('/:id', (req, res) => {
+//     // GET route code here
+//     const queryText = `SELECT * FROM "recipes" 
+//                        JOIN categories ON recipes.category_id = categories.id
+//                        WHERE categories.id = $1`;
+//     pool.query(queryText).then(result => {
+//         res.send(result.rows);
+//     }).catch(error => {
+//         console.log(`Error in GET all recipes: ${error}`);
+//         res.sendStatus(500);
+//     })
+// });
+
 // new GET route for the specific id that we want on the RecipeCard component
 
 router.get('/:id', (req, res) => {

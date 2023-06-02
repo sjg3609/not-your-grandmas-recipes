@@ -14,8 +14,8 @@ function RecipesPage() {
     const categories = useSelector(store => store.categoryReducer);
     // const [recipeCategory, setRecipeCategory] = useState();
 
-    console.log('Checking for recipes', recipes);
-    console.log('Check categories', categories);
+    // console.log('Checking for recipes', recipes);
+    // console.log('Check categories', categories);
 
     const fetchCategories = () => {
         dispatch({ type: 'FETCH_CATEGORIES' });
