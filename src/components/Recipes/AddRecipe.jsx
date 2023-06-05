@@ -62,7 +62,7 @@ function AddRecipe() {
                 ) : (
                     <FormControl  fullWidth>
                         <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
-                        <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" style={{width: '210px'}}>
+                        <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" style={{width: '230px'}}>
                             
                             {
                                 categories.map(category => {
@@ -74,13 +74,13 @@ function AddRecipe() {
                         </Select>
                         <br />
                         <br />
-                        <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
+                        <TextField  type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
                         <br />
                         <br />
-                        <TextField type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
+                        <TextField fullWidth multiline rows={30} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
                         <br />
                         <br />
-                        <TextField type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
+                        <TextField multiline rows={30} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
                         <br />
                         <br />
                         <Button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>

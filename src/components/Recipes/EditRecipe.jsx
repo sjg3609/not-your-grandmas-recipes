@@ -56,13 +56,13 @@ function EditRecipe() {
                 Ingredients:
                 <br />
                 <br />
-                <TextField type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
+                <TextField  multiline rows={30} type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
                 <br />
                 <br />
                 Instructions:
                 <br />
                 <br />
-                <TextField type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
+                <TextField multiline rows={30} sytle={{width: '400'}} type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
             </form>
             <br />
             <Button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</Button>

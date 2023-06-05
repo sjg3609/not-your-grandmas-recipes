@@ -4,12 +4,14 @@ import axios from 'axios';
 function* getNotes(action) {
     try {
         const notes = yield axios.get(`/api/notes/${action.payload}`);
-        if (notes.data.length > 0) {
-            console.log('Checking notes in getNotes', notes.data[0])
-            yield put({ type: 'NOTE_DETAILS', payload: notes.data });
-        } else if (notes.data = []) {
-            yield put({ type: 'NOTE DETAILS', payload: {} });
-        }
+        yield put({ type: 'NOTE_DETAILS', payload: notes.data });
+        // Trying to conditionally show only the notes that are present in database for each recipe
+        // if (notes.data = []) {
+        //     console.log('Checking notes in getNotes', notes.data[0])
+        //     yield put({ type: 'NOTE_DETAILS', payload: notes.data });
+        // } else {
+        //     yield put({ type: 'NOTE DETAILS', payload: notes.data });
+        // }
     } catch (error) {
         console.log(`Error in getNotes ${error}`);
     }

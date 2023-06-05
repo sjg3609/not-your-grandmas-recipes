@@ -8,4 +8,8 @@ h1 {
     text-align: center;
 }
 
+.editRecipes {
+    display:inline-block;
+    justify-content: center;
+}
 
