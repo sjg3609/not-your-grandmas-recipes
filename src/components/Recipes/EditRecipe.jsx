@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import './AddRecipe.css';
-import { TextField, Button, InputLabel } from '@mui/material';
+// import './AddRecipe.css';
+import { TextField, Button, FormControl } from '@mui/material';
 
 
 function EditRecipe() {
@@ -44,9 +44,9 @@ function EditRecipe() {
     
 
     return (
-        <div >
+        <div className="editRecipes">
             <h1>Editing {recipe.recipe_name}</h1>
-            <form className="editRecipes">
+            <FormControl fullWidth >
                 Recipe Name:
                 <br />
                 <br />
@@ -56,14 +56,14 @@ function EditRecipe() {
                 Ingredients:
                 <br />
                 <br />
-                <TextField  multiline rows={30} type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
+                <TextField  multiline rows={15} sx={{width: '800px'}}  type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
                 <br />
                 <br />
                 Instructions:
                 <br />
                 <br />
-                <TextField multiline rows={30} sytle={{width: '400'}} type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
-            </form>
+                <TextField multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
+            </FormControl>
             <br />
             <Button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</Button>
             {'  '}

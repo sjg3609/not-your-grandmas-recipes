@@ -77,10 +77,10 @@ function AddRecipe() {
                         <TextField  type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
                         <br />
                         <br />
-                        <TextField fullWidth multiline rows={30} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
+                        <TextField fullWidth multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
                         <br />
                         <br />
-                        <TextField multiline rows={30} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
+                        <TextField multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
                         <br />
                         <br />
                         <Button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>

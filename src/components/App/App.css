@@ -182,8 +182,9 @@ h1 {
 }
 
 .editRecipes {
-  margin-left: 45%;
-  
+  display: inline-block;
+  justify-content: center;
+  margin-left: 30%;
 }
 
 .recipes {

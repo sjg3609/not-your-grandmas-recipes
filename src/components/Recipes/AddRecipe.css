@@ -1,15 +1,15 @@
 .addRecipes {
     display:inline-block;
-    justify-content: center;;
-    margin-left: 45%;
+    justify-content: center;
+    margin-left: 30%;
 }
 
 h1 {
     text-align: center;
 }
 
-.editRecipes {
+/* .editRecipes {
     display:inline-block;
     justify-content: center;
-}
+} */
 
