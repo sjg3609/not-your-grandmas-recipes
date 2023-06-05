@@ -46,6 +46,8 @@ function EditRecipe() {
     return (
         <div className="editRecipes">
             <h1>Editing {recipe.recipe_name}</h1>
+            <br />
+            <br />
             <FormControl fullWidth >
                 Recipe Name:
                 <br />

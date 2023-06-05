@@ -62,12 +62,12 @@ function AddRecipe() {
                 ) : (
                     <FormControl  fullWidth>
                         <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
-                        <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" style={{width: '230px'}}>
+                        <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" sx={{width: '800px'}}>
                             
                             {
                                 categories.map(category => {
                                     return (
-                                        <MenuItem style={{width: 'auto'}}key={category.id} value={category.id}>{category.description}</MenuItem>
+                                        <MenuItem sx={{width: '800px'}}key={category.id} value={category.id}>{category.description}</MenuItem>
                                     )
                                 })
                             }
