@@ -37,7 +37,7 @@ function AddRecipe() {
 
     const submitRecipe = () => {
         dispatch({
-            type: 'SET_NEW_RECIPE', 
+            type: 'SET_NEW_RECIPE',
             payload: {
                 user_id: user.id,
                 category_id: categoryId,
@@ -52,42 +52,45 @@ function AddRecipe() {
     console.log(`Checking categoryId`, categoryId);
 
     return (
-        <div className="addRecipes">
-            <h1>Add Recipe!</h1>
-            {
-                categories.length === 0 ? (
-                    <div>
-                        <h1>Loading...</h1>
-                    </div>
-                ) : (
-                    <FormControl  fullWidth>
-                        <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
-                        <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" sx={{width: '800px'}}>
-                            
-                            {
-                                categories.map(category => {
-                                    return (
-                                        <MenuItem sx={{width: '800px'}}key={category.id} value={category.id}>{category.description}</MenuItem>
-                                    )
-                                })
-                            }
-                        </Select>
-                        <br />
-                        <br />
-                        <TextField  type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
-                        <br />
-                        <br />
-                        <TextField fullWidth multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
-                        <br />
-                        <br />
-                        <TextField multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
-                        <br />
-                        <br />
-                        <Button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>
-                    </FormControl>
-                )
-            }
-        </div >
+        <main className="main">
+            <div className="addRecipes">
+                <h1>Add Recipe!</h1>
+                {
+                    categories.length === 0 ? (
+                        <div>
+                            <h1>Loading...</h1>
+                        </div>
+                    ) : (
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
+                            <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" sx={{ width: '800px' }}>
+
+                                {
+                                    categories.map(category => {
+                                        return (
+                                            <MenuItem sx={{ width: '800px' }} key={category.id} value={category.id}>{category.description}</MenuItem>
+                                        )
+                                    })
+                                }
+                            </Select>
+                            <br />
+                            <br />
+                            <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
+                            <br />
+                            <br />
+                            <TextField fullWidth multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
+                            <br />
+                            <br />
+                            <TextField multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
+                            <br />
+                            <br />
+                            <Button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>
+                        </FormControl>
+                    )
+                }
+            </div >
+        </main>
+
     )
 }
 

@@ -11,9 +11,9 @@ function EditRecipe() {
     const recipe = useSelector(store => store.recipeDetails);
     const history = useHistory();
     const dispatch = useDispatch();
-    const [recipeName, setRecipeName] = useState('');
-    const [ingredients, setIngredients] = useState('');
-    const [instructions, setInstructions] = useState('');
+    const [recipeName, setRecipeName] = useState(recipe.recipe_name);
+    const [ingredients, setIngredients] = useState(recipe.ingredients);
+    const [instructions, setInstructions] = useState(recipe.instructions);
 
 
     useEffect(() => {
@@ -52,19 +52,19 @@ function EditRecipe() {
                 Recipe Name:
                 <br />
                 <br />
-                <TextField type="text" placeholder="Recipe Name" defaultValue={recipe.recipe_name} onChange={(event) => setRecipeName(event.target.value)}></TextField>
+                <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
                 <br />
                 <br />
                 Ingredients:
                 <br />
                 <br />
-                <TextField  multiline rows={15} sx={{width: '800px'}}  type="text" placeholder="Ingredients" defaultValue={recipe.ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
+                <TextField  multiline rows={15} sx={{width: '800px'}}  type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
                 <br />
                 <br />
                 Instructions:
                 <br />
                 <br />
-                <TextField multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Instructions" defaultValue={recipe.instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
+                <TextField multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
             </FormControl>
             <br />
             <Button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</Button>
