@@ -17,7 +17,6 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 
 - Postgres SQL
 - [Node.js](https://nodejs.org/en/)
-- Express
 
 
 ## Installation
@@ -43,6 +42,7 @@ How does someone use this application? Tell a user story here.
 ## Built With
 
 - Axios
+- Express
 - React.js
 - Redux and Redux Sagas
 - Material UI
