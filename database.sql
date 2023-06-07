@@ -36,3 +36,6 @@ CREATE TABLE "share_recipe" (
 	"recipe_id" INT REFERENCES "recipes" ON DELETE CASCADE,
 	"access_level" integer NOT NULL
 );
+
+INSERT INTO "categories" ("description")
+VALUES ('Appetizers'), ('Breakfast'), ('Entrees'), ('Desserts'), ('Casseroles'), ('Meats');
