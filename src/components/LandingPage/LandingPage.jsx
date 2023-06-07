@@ -17,9 +17,9 @@ function LandingPage() {
     <div className="container">
       <h2>{heading}</h2>
 
-      <div className="grid">
+      <div className="homePage">
         <div className="grid-col grid-col_8">
-          <p>
+          {/* <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
             ut ex molestie blandit. Etiam et turpis sit amet risus mollis
@@ -49,9 +49,9 @@ function LandingPage() {
             sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
             non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
             amet nisi.
-          </p>
+          </p> */}
         </div>
-        <div className="grid-col grid-col_4">
+        <div className="registerUser">
           <RegisterForm />
 
           <center>
