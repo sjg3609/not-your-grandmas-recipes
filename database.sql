@@ -15,10 +15,15 @@ CREATE TABLE "recipes" (
 	"category_id" INT references "categories",
 	"recipe_name" varchar (200) NOT NULL,
 	"ingredients" varchar (8000) NOT NULL,
-	"instructions" varchar (8000) NOT NULL,
-	"notes" varchar (8000)
+	"instructions" varchar (8000) NOT NULL
 );
 
+CREATE TABLE "notes" (
+	"id" SERIAL PRIMARY KEY,
+	"user_id" INT references "user",
+	"recipe_id" INT references "recipes" ON DELETE CASCADE,
+	"notes" VARCHAR (10000)
+);
 
 CREATE TABLE "categories" (
 	"id" SERIAL PRIMARY KEY,
@@ -28,6 +33,6 @@ CREATE TABLE "categories" (
 
 CREATE TABLE "share_recipe" (
 	"user_id" INT REFERENCES "user",
-	"recipe_id" INT REFERENCES "recipes",
+	"recipe_id" INT REFERENCES "recipes" ON DELETE CASCADE,
 	"access_level" integer NOT NULL
 );
