@@ -18,10 +18,6 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 - Postgres SQL
 - [Node.js](https://nodejs.org/en/)
 - Express
-- Axios
-- React.js
-- Redux and Redux Sagas
-- Material UI
 
 
 ## Installation
@@ -32,3 +28,21 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 4. Run `npm run server` in your terminal
 5. Run `npm run client` in your terminal
 6. The `npm run client` command will open up a new browser tab for you!
+
+## Usage
+How does someone use this application? Tell a user story here.
+
+1. Read and browse the current recipes, by clicking on the Recipes tab!
+2. On the Recipes page, there is a Catergories menu that allows you to see the specfic recipes for each category
+3. Once you find a recipe, click on it to go to the Recipe Card for the details of what you need for ingredients and instructions
+4. On the Recipe Card there is 3 buttons to Add a Note, Edit Recipe and Delete Recipe. 
+5. Add a note will direct you to a new page that you will be able to write your note and it will then be displayed on the Recipe Card.
+6. Edit Recipe will take you to another page, with prepopulated forms of the data associated with the recipe so you can make necessary changes.
+7. The Add Recipe tab, will allow you to add a new Recipe to the Recipe Box! It comes with forms, where the categories are in a drop down menu to set, and then the user inputs the necessary data for Recipe Name, Ingredients and Instructions
+
+## Built With
+
+- Axios
+- React.js
+- Redux and Redux Sagas
+- Material UI
