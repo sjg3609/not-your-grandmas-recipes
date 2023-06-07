@@ -46,3 +46,9 @@ How does someone use this application? Tell a user story here.
 - React.js
 - Redux and Redux Sagas
 - Material UI
+
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. I want to give a massive shout out to my cohort instructor, Chris Black! As well as, our Code Coach for our cohort, Marc McCarthy, without their help with my blockers, errors and their support this would not have been possible! All my cohort classmates too in the Tanzanite cohort has made this an incredible journey and being able to learn from them, and bounce ideas off them has been massively beneficial! 
+
+## Support
+If you have suggestions or issues, please email me at [sjg3609@gmail.com](www.google.com)
