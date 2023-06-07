@@ -3,7 +3,7 @@
 
 ## Description
 
-_Duration: 3 Weeks
+Duration: 3 Weeks
 
 Not Your Grandmas Recipe Box solves an issue of having a family recipe box full of recipe cards, and not having a way to instantly find and access them! With Not Your Grandmas allows the user to see all recipes in the application, add a new one, and then be able to leave notes on individual recipes after they make them! You can also edit recipes after posting them to the application to correct any errors, or make changes to the name, ingredients and instructions.
 
