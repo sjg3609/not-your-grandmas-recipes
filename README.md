@@ -21,7 +21,7 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 
 ## Installation
 
-1. Create a database named `your database name`,
+1. Create a database named `not_your_grandmas_recipes`,
 2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
 3. Open up your editor of choice and run an `npm install`
 4. Run `npm run server` in your terminal
