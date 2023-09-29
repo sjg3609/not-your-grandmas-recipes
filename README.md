@@ -3,7 +3,7 @@
 
 ## Description
 
-_Duration: 3 Weeks
+Duration: 3 Weeks
 
 Not Your Grandmas Recipe Box solves an issue of having a family recipe box full of recipe cards, and not having a way to instantly find and access them! With Not Your Grandmas allows the user to see all recipes in the application, add a new one, and then be able to leave notes on individual recipes after they make them! You can also edit recipes after posting them to the application to correct any errors, or make changes to the name, ingredients and instructions.
 
@@ -17,12 +17,11 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 
 - Postgres SQL
 - [Node.js](https://nodejs.org/en/)
-- Express
 
 
 ## Installation
 
-1. Create a database named `your database name`,
+1. Create a database named `not_your_grandmas_recipes`,
 2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
 3. Open up your editor of choice and run an `npm install`
 4. Run `npm run server` in your terminal
@@ -43,6 +42,7 @@ How does someone use this application? Tell a user story here.
 ## Built With
 
 - Axios
+- Express
 - React.js
 - Redux and Redux Sagas
 - Material UI
