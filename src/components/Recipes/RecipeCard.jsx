@@ -14,7 +14,7 @@ function RecipeCard() {
     const recipeNotes = useSelector(store => store.noteReducer);
     const user = useSelector(store => store.user);
 
-    // console.log('Checking recipe details', recipe);
+    console.log('Checking recipe details', recipe);
     // console.log('Checking notes', recipeNotes);
 
     const fetchDetails = () => {
@@ -37,7 +37,6 @@ function RecipeCard() {
             console.log('Notes are set')
         }
     }, [id]);
-
 
 
     const deleteRecipe = () => {
@@ -68,6 +67,12 @@ function RecipeCard() {
         history.goBack('/recipes');
         dispatch({ type: 'FETCH_RECIPES', payload: id });
     }
+
+    const userConversion = (id) => {
+        if (recipe.user_id === user.id) {
+            return user.username
+        }
+    } 
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === '#423E3D',
@@ -109,6 +114,7 @@ function RecipeCard() {
                                     )
                                 }
                             </div>
+                            <p>Submitted by: {recipe.username}</p>
                             <br />
                             <Button variant="contained" size="small" onClick={() => addNote(recipe.id)}>Add Note</Button>
                             {' '}
