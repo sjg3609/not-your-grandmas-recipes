@@ -47,7 +47,6 @@ function RecipesPage() {
         height: 90,
         maxWidth: 'auto',
         maxHeight: 'auto',
-        wordWrap: 'break-word',
         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
     }));
 
@@ -61,8 +60,8 @@ function RecipesPage() {
                         {
                             categories.map(category => {
                                 return (
-                                    <ul className="categories">
-                                        <l1 key={category.id} onClick={() => getRecipes(category.id)}>{category.description}</l1>
+                                    <ul className="categories" key={category.id} >
+                                        <li style={{ listStyleType: 'none' }} onClick={() => getRecipes(category.id)}>{category.description}</li>
                                     </ul>
                                 )
                             })
@@ -76,7 +75,7 @@ function RecipesPage() {
                             justifyContent="space-evenly"
                             alignItems="center"
                             padding={8}
-                            wordWrap= 'break-word'
+                            wordWrap='break-word'
                         >
                             {
                                 recipes.map(recipe => {
