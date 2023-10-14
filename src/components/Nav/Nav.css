@@ -1,7 +1,7 @@
 .nav {
   /* flex box layout */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 25px;
   margin: 0 0 30px;

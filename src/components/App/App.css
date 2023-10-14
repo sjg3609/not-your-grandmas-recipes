@@ -140,7 +140,7 @@ h1 {
   height: 100em; /* Full-height: remove this if you want "auto" height */
   width: 180px; /* Set the width of the sidebar */
   position: absolute;
-  top: 132px;
+  top: 168px;
   left: 0;
   background-color: #313131; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
