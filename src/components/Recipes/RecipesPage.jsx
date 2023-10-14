@@ -75,7 +75,6 @@ function RecipesPage() {
                             justifyContent="space-evenly"
                             alignItems="center"
                             padding={8}
-                            wordWrap='break-word'
                         >
                             {
                                 recipes.map(recipe => {
