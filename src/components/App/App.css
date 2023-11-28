@@ -137,13 +137,13 @@ h1 {
 
 /* The sidebar menu */
 .categoryNav {
-  height: 100em; /* Full-height: remove this if you want "auto" height */
-  width: 180px; /* Set the width of the sidebar */
+  height: 100em; 
+  width: 180px; 
   position: absolute;
   top: 168px;
   left: 0;
-  background-color: #313131; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
+  background-color: #313131; 
+  overflow-x: hidden; 
   padding-top: 10px;
   color: #2c2c2c;
 }

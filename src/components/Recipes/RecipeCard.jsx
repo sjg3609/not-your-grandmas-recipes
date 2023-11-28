@@ -12,21 +12,18 @@ function RecipeCard() {
     const { id } = useParams();
     const recipe = useSelector(store => store.recipeDetails);
     const recipeNotes = useSelector(store => store.noteReducer);
-    const user = useSelector(store => store.user);
-
+ 
     console.log('Checking recipe details', recipe);
-    // console.log('Checking notes', recipeNotes);
 
-    const fetchDetails = () => {
-        console.log(id)
-        dispatch({ type: 'FETCH_DETAILS', payload: id });
+
+    const breakLineAfterComma = (recipe) => {
+        return recipe.split(/,/g).join(', \n');
+        // return recipe.replace(/,/g, ', \n');
     }
 
-    const fetchNotes = () => {
-        console.log(id)
-        dispatch({ type: 'FETCH_NOTES', payload: id });
-    }
+    const names = 'Sam, Nollie, Joe';
 
+    console.log(breakLineAfterComma(names))
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
@@ -68,11 +65,6 @@ function RecipeCard() {
         dispatch({ type: 'FETCH_RECIPES', payload: id });
     }
 
-    const userConversion = (id) => {
-        if (recipe.user_id === user.id) {
-            return user.username
-        }
-    } 
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === '#423E3D',
