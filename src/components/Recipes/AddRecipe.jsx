@@ -52,8 +52,8 @@ function AddRecipe() {
     console.log(`Checking categoryId`, categoryId);
 
     return (
-        <main className="main">
-            <div className="addRecipes">
+        <div className="addRecipes">
+            <center>
                 <h1>Add Recipe!</h1>
                 {
                     categories.length === 0 ? (
@@ -62,7 +62,7 @@ function AddRecipe() {
                         </div>
                     ) : (
                         <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
+                            <InputLabel id="demo-simple-select-helper-label" >Category</InputLabel>
                             <Select onChange={(setCategory)} labelId="demo-simple-select-helper-label" label="Category" sx={{ width: '800px' }}>
 
                                 {
@@ -78,19 +78,19 @@ function AddRecipe() {
                             <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
                             <br />
                             <br />
-                            <TextField fullWidth multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
+                            <TextField  multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)}></TextField>
                             <br />
                             <br />
                             <TextField multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)}></TextField>
                             <br />
                             <br />
-                            <Button onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>
+                            <Button variant="contained" onClick={() => submitRecipe()} style={{ float: 'right' }}>Submit</Button>
                         </FormControl>
                     )
                 }
-            </div >
-        </main>
+            </center>
 
+        </div >
     )
 }
 

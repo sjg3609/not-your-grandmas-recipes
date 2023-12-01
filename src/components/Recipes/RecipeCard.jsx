@@ -79,7 +79,7 @@ function RecipeCard() {
             <Item>
                 <h1>{recipe.recipe_name}</h1>
                 <hr /><br />
-                <Button variant="contained" size="small" onClick={goBack}>Go Back</Button>
+                <Button variant="contained" onClick={goBack}>Go Back</Button>
                 {
                     recipe.length === 0 ? (
                         <div>
@@ -109,13 +109,22 @@ function RecipeCard() {
                                     )
                                 }
                             </div>
-                            <p>Submitted by: {recipe.username}</p>
+
                             <br />
-                            <Button variant="contained" size="small" onClick={() => addNote(recipe.id)}>Add Note</Button>
+                            <div className="recipeCardButtons" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                                <Button onClick={() => addNote(recipe.id)}>Add Note</Button>
+                                {' '}
+                                <Button onClick={() => editRecipe(recipe.id)}>Edit Recipe</Button>
+                                {' '}
+                                <Button onClick={deleteRecipe}>Delete Recipe</Button>
+                                <p style={{ display: 'flex', float: 'right', paddingRight: '20px' }}>Submitted by: {recipe.username}</p>
+                            </div>
+                            {/* <Button variant="contained" size="small" onClick={() => addNote(recipe.id)}>Add Note</Button>
                             {' '}
                             <Button variant="contained" size="small" onClick={() => editRecipe(recipe.id)}>Edit Recipe</Button>
                             {' '}
                             <Button variant="contained" size="small" onClick={deleteRecipe}>Delete Recipe</Button>
+                            <p style={{ display: 'flex', float: 'right', paddingRight: '20px' }}>Submitted by: {recipe.username}</p> */}
                         </div>
                     )
                 }

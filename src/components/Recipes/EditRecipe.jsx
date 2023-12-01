@@ -41,35 +41,37 @@ function EditRecipe() {
         history.goBack();
     }
 
-    
+
 
     return (
         <div className="editRecipes">
-            <h1>Editing {recipe.recipe_name}</h1>
-            <br />
-            <br />
-            <FormControl fullWidth >
-                Recipe Name:
+            <center>
+                <h1>Editing {recipe.recipe_name}</h1>
                 <br />
                 <br />
-                <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
+                <FormControl fullWidth >
+                    <h2>Recipe Name:</h2>
+                    <br />
+                    <TextField type="text" placeholder="Recipe Name" value={recipeName} onChange={(event) => setRecipeName(event.target.value)}></TextField>
+                    <br />
+                    <h2>Ingredients:</h2>
+                    <br />
+                    <TextField multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
+                    <br />
+                    <h2>Instructions:</h2>
+                    <br />
+                    <TextField multiline rows={15} sx={{ width: '800px' }} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
+                </FormControl>
                 <br />
                 <br />
-                Ingredients:
-                <br />
-                <br />
-                <TextField  multiline rows={15} sx={{width: '800px'}}  type="text" placeholder="Ingredients" value={ingredients} onChange={(event) => setIngredients(event.target.value)} ></TextField>
-                <br />
-                <br />
-                Instructions:
-                <br />
-                <br />
-                <TextField multiline rows={15} sx={{width: '800px'}} type="text" placeholder="Instructions" value={instructions} onChange={(event) => setInstructions(event.target.value)} ></TextField>
-            </FormControl>
-            <br />
-            <Button onClick={goBack} style={{ float: 'left', marginLeft: '45%' }}>Go Back</Button>
-            {'  '}
-            <Button onClick={() => submitRecipe(id)} style={{ float: 'right', marginRight: '45%' }}>Submit</Button>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                    <Button variant="contained" onClick={goBack} style={{}}>Go Back</Button>
+                    {'  '}
+                    <Button variant="contained" onClick={() => submitRecipe(id)} style={{}}>Submit</Button>
+                </div>
+
+            </center>
+
         </div>
     )
 }
