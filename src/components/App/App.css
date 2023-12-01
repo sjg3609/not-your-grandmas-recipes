@@ -129,10 +129,10 @@ h1 {
 }
 
 .recipePage {
-  /* column-count: 2;
-  column-fill: unset; */
+  display: flex;
+  justify-content: center;
   margin: 20px;
-  /* padding: 20px; */
+  padding: 20px;
 }
 
 /* The sidebar menu */

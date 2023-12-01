@@ -13,7 +13,6 @@ function RecipeCard() {
     const recipe = useSelector(store => store.recipeDetails);
     const recipeNotes = useSelector(store => store.noteReducer);
 
-    // console.log('Checking recipe details', recipe.ingredients.split(','));
 
 
     const breakLineAfterComma = (recipe) => {
