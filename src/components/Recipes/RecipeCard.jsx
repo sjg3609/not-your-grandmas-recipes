@@ -12,18 +12,14 @@ function RecipeCard() {
     const { id } = useParams();
     const recipe = useSelector(store => store.recipeDetails);
     const recipeNotes = useSelector(store => store.noteReducer);
- 
-    console.log('Checking recipe details', recipe);
+
+    // console.log('Checking recipe details', recipe.ingredients.split(','));
 
 
     const breakLineAfterComma = (recipe) => {
-        return recipe.split(/,/g).join(', \n');
+        return recipe.split(',').join(',');
         // return recipe.replace(/,/g, ', \n');
     }
-
-    const names = 'Sam, Nollie, Joe';
-
-    console.log(breakLineAfterComma(names))
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
@@ -83,6 +79,7 @@ function RecipeCard() {
         <div className="recipeCard">
             <Item>
                 <h1>{recipe.recipe_name}</h1>
+                <hr /><br />
                 <Button variant="contained" size="small" onClick={goBack}>Go Back</Button>
                 {
                     recipe.length === 0 ? (
@@ -91,11 +88,18 @@ function RecipeCard() {
                         </div>
                     ) : (
                         <div key={recipe.id}>
-                            <h4>Ingredients</h4>
-                            <p>{recipe.ingredients}</p>
-                            <h4>Instructions</h4>
+                            <h3>Ingredients</h3>
+                            <p>{breakLineAfterComma(recipe.ingredients)}</p>
+                            {/* <ul>
+                                {
+                                    recipe.map((list) => (
+                                        <li>{list.ingredients}</li>
+                                    ))
+                                }
+                            </ul> */}
+                            <h3>Instructions</h3>
                             <p>{recipe.instructions}</p>
-                            <h4>Notes:</h4>
+                            <h3>Notes:</h3>
                             <div className="notesDiv">
                                 {
                                     recipeNotes.map(note =>
