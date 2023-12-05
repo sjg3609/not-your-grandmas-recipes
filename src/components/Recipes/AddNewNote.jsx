@@ -42,8 +42,11 @@ function AddNewNote() {
                     <TextField type="text" value={newNoteToAdd} onChange={(event) => setNewNoteToAdd(event.target.value)} placeholder="Enter Notes" style={{ width: '60%', height: '100px', padding: '12px 20px' }} />
                 </div>
             </form >
-            <Button variant="contained" onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</Button>
-            <Button variant="contained" onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</Button>
+            <div className='recipeCardButtons'>
+                <Button variant="contained" onClick={() => submitNote()} style={{ float: 'right', margin: '40px' }}>Submit</Button>
+                <Button variant="contained" onClick={goBack} style={{ float: 'left', margin: '40px' }}>Go Back</Button>
+
+            </div>
 
         </div >
     )

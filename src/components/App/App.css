@@ -196,6 +196,11 @@ h1 {
   flex-wrap: wrap;
 }
 
+.recipeCardButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 /* .imageDiv {
   display: flex;
   justify-content: baseline;
