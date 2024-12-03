@@ -35,7 +35,7 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #4cd2ff;
+  background-color: #d77400;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -58,7 +58,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #40c5f1;
+  background-color: #934e00;
   text-decoration: none;
 }
 

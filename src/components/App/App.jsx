@@ -25,6 +25,7 @@ import RecipeCard from '../Recipes/RecipeCard';
 import './App.css';
 import EditRecipe from '../Recipes/EditRecipe';
 import AddNewNote from '../Recipes/AddNewNote'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 function App() {
@@ -36,7 +37,19 @@ function App() {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#d77400',
+      },
+      secondary: {
+        main: '#934e00'
+      },
+    }
+  }); // End theme
+
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <div>
         <Nav />
@@ -142,6 +155,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 

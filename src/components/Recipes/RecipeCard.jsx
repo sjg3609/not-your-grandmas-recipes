@@ -74,8 +74,8 @@ function RecipeCard() {
         <div className="recipeCard">
             <Item>
                 <h1>{recipe.recipe_name}</h1>
-                <hr /><br />
-                <Button variant="contained" onClick={goBack}>Go Back</Button>
+                <hr /><br/>
+                <Button variant="contained" className='button' onClick={goBack}>Go Back</Button>
                 {
                     recipe.length === 0 ? (
                         <div>
