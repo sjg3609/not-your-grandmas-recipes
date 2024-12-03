@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Paper, Button } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 
 function RecipeCard() {
@@ -13,12 +15,6 @@ function RecipeCard() {
     const recipe = useSelector(store => store.recipeDetails);
     const recipeNotes = useSelector(store => store.noteReducer);
 
-
-
-    const breakLineAfterComma = (recipe) => {
-        return recipe.split(',').join(',');
-        // return recipe.replace(/,/g, ', \n');
-    }
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS', payload: id });
@@ -88,27 +84,33 @@ function RecipeCard() {
                     ) : (
                         <div key={recipe.id}>
                             <h3>Ingredients</h3>
-                            <p>{breakLineAfterComma(recipe.ingredients)}</p>
-                            {/* <ul>
-                                {
-                                    recipe.map((list) => (
-                                        <li>{list.ingredients}</li>
-                                    ))
-                                }
-                            </ul> */}
+                            <ol style={{ textAlign: 'center', listStylePosition: 'inside' }}>
+                                {recipe.ingredients.split(',').map((list, index) => (
+                                    <li key={index}>{list.trim()}</li>
+                                ))}
+                            </ol>
                             <h3>Instructions</h3>
                             <p>{recipe.instructions}</p>
-                            <h3>Notes:</h3>
-                            <div className="notesDiv">
-                                {
-                                    recipeNotes.map(note =>
-                                        <div key={note.id}>
-                                            <p>{note.notes}</p>
-                                        </div>
-                                        //  <Button  variant="contained" size="small" onClick={() => deleteNote(note.id)}>Delete</Button>
-                                    )
-                                }
-                            </div>
+
+                            {
+                                recipeNotes.length === 0 ? (
+                                    <></>
+                                ) : (
+                                    <div className="notesDiv">
+                                        {
+                                            recipeNotes.map(note =>
+                                                <div key={note.id}>
+                                                    <h3>Notes:</h3>
+                                                    <p>{note.notes}</p>
+                                                    <IconButton style={{ alignItems: 'right' }} size="small"><DeleteIcon /></IconButton>
+                                                </div>
+                                                //  <Button  variant="contained" size="small" onClick={() => deleteNote(note.id)}>Delete</Button>
+                                            )
+                                        }
+                                    </div>
+                                )
+                            }
+
 
                             <br />
                             <div className="recipeCardButtons" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
