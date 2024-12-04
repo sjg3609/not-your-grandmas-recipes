@@ -85,7 +85,7 @@ function RecipeCard() {
                         <div key={recipe.id}>
                             <h3>Ingredients</h3>
                             <ol style={{ display:'inline-block', textAlign: 'left', listStylePosition: 'inside' }}>
-                                {recipe.ingredients.split(',').map((list, index) => (
+                                {recipe.ingredients.split(',' , ' ').map((list, index) => (
                                     <li key={index}>{list.trim()}</li>
                                 ))}
                             </ol>
