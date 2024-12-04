@@ -84,14 +84,14 @@ function RecipeCard() {
                     ) : (
                         <div key={recipe.id}>
                             <h3>Ingredients</h3>
-                            <ol style={{ textAlign: 'center', listStylePosition: 'inside' }}>
+                            <ol style={{ display:'inline-block', textAlign: 'left', listStylePosition: 'inside' }}>
                                 {recipe.ingredients.split(',').map((list, index) => (
                                     <li key={index}>{list.trim()}</li>
                                 ))}
                             </ol>
                             <h3>Instructions</h3>
                             <p>{recipe.instructions}</p>
-
+                            {/* Conditionally checking for notes on each recipe first before displaying them */}
                             {
                                 recipeNotes.length === 0 ? (
                                     <></>
